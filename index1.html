@@ -1,0 +1,564 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>AppleRepairs - Premium Apple Device Repairs</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://unpkg.com/feather-icons"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=SF+Pro+Display:wght@300;400;500;600;700&display=swap');
+        body {
+            font-family: 'SF Pro Display', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: #1d1d1f;
+            background-color: #f5f5f7;
+        }
+        .service-card:hover {
+            transform: scale(1.02);
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+        }
+        .repair-option.active, .repair-option:hover {
+            border-color: #0071e3;
+            background-color: rgba(0, 125, 250, 0.06);
+        }
+        nav {
+            background-color: rgba(245, 245, 247, 0.8);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+        }
+        .hero-section {
+            background: linear-gradient(to right, #000000, #1d1d1f);
+        }
+    </style>
+</head>
+<body class="bg-gray-50">
+    <!-- Navigation -->
+    <nav class="bg-white shadow-sm">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex justify-between h-16">
+                <div class="flex items-center">
+                    <div class="flex-shrink-0 flex items-center">
+                        <i data-feather="cpu" class="text-blue-600 h-8 w-8"></i>
+                        <span class="ml-2 text-xl font-bold text-gray-900">AppleRepairs</span>
+                    </div>
+                </div>
+                <div class="hidden sm:ml-6 sm:flex sm:space-x-8">
+                    <a href="#" class="border-blue-500 text-gray-900 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Home</a>
+                    <a href="#" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Services</a>
+                    <a href="#" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Book Repair</a>
+                    <a href="#" class="border-transparent text-gray-500 hover:border-gray-300 hover:text-gray-700 inline-flex items-center px-1 pt-1 border-b-2 text-sm font-medium">Track Order</a>
+                </div>
+                <div class="flex items-center">
+                    <button class="bg-blue-600 hover:bg-blue-700 text-white px-4 py-2 rounded-md text-sm font-medium">
+                        <i data-feather="phone" class="mr-2"></i> Call Us
+                    </button>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <div class="relative hero-section overflow-hidden">
+<div class="max-w-7xl mx-auto">
+            <div class="relative z-10 pb-8 sm:pb-16 md:pb-20 lg:max-w-2xl lg:w-full lg:pb-28 xl:pb-32">
+                <main class="mt-10 mx-auto max-w-7xl px-4 sm:mt-12 sm:px-6 lg:mt-16 lg:px-8 xl:mt-20">
+                    <div class="sm:text-center lg:text-left">
+                        <h1 class="text-4xl tracking-tight font-extrabold text-white sm:text-5xl md:text-6xl">
+                            <span class="block">Apple Device Repairs</span>
+                                <span class="block text-gray-400">Fast & Reliable</span>
+</h1>
+                            <p class="mt-3 text-base text-gray-300 sm:mt-5 sm:text-lg sm:max-w-xl sm:mx-auto md:mt-5 md:text-xl lg:mx-0">
+Certified technicians using genuine Apple parts. Same-day service available.
+                        </p>
+                        <div class="mt-5 sm:mt-8 sm:flex sm:justify-center lg:justify-start">
+                            <div class="rounded-md shadow">
+                                <a href="#services" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-blue-600 bg-white hover:bg-gray-50 md:py-4 md:text-lg md:px-10">
+                                    View Services
+                                </a>
+                            </div>
+                            <div class="mt-3 sm:mt-0 sm:ml-3">
+                                <a href="#book-repair" class="w-full flex items-center justify-center px-8 py-3 border border-transparent text-base font-medium rounded-md text-white bg-blue-500 bg-opacity-60 hover:bg-opacity-70 md:py-4 md:text-lg md:px-10">
+                                    Book Repair
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </main>
+            </div>
+        </div>
+        <div class="absolute top-0 right-0 h-full w-1/2 bg-gradient-to-b from-blue-500 to-blue-700 opacity-20" style="clip-path: polygon(25% 0%, 100% 0%, 75% 100%, 0% 100%);"></div>
+    </div>
+
+    <!-- Repair Services -->
+    <div id="services" class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center">
+                <h2 class="text-base text-gray-500 font-medium tracking-wider">Our Services</h2>
+<p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    Apple Device Repairs
+                </p>
+                <p class="mt-4 max-w-2xl text-xl text-gray-500 lg:mx-auto">
+                    We repair all Apple devices using genuine parts and certified technicians.
+                </p>
+            </div>
+
+            <div class="mt-10 grid grid-cols-1 gap-y-10 sm:grid-cols-2 gap-x-6 lg:grid-cols-3 xl:grid-cols-4 xl:gap-x-8">
+                <!-- iPhone Screen Repair -->
+                <div class="service-card group relative bg-gray-50 rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="w-full h-48 bg-gray-100 relative overflow-hidden">
+                        <img class="w-full h-full object-contain p-4" src="http://static.photos/technology/640x360/1" alt="iPhone repair">
+                        <div class="absolute inset-0 bg-gradient-to-t from-black/30 to-transparent flex items-end p-4">
+                            <i data-feather="smartphone" class="text-white h-8 w-8 mb-2"></i>
+                        </div>
+                    </div>
+<div class="p-4">
+                        <h3 class="text-lg font-medium text-gray-900">iPhone Screen Repair</h3>
+                        <p class="mt-1 text-sm text-gray-500">All models from iPhone 6 to iPhone 14 Pro Max</p>
+                        <div class="mt-4">
+                            <span class="text-sm font-medium text-gray-900">From $99</span>
+                            <a href="#book-repair" class="ml-2 text-sm text-blue-600 hover:text-blue-800">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- MacBook Screen Repair -->
+                <div class="service-card group relative bg-gray-50 rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="w-full h-48 bg-gray-200 relative">
+                        <img class="w-full h-full object-cover" src="http://static.photos/technology/640x360/2" alt="MacBook repair">
+                        <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
+                            <i data-feather="monitor" class="text-white h-12 w-12"></i>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-medium text-gray-900">MacBook Screen Repair</h3>
+                        <p class="mt-1 text-sm text-gray-500">All MacBook models including Pro and Air</p>
+                        <div class="mt-4">
+                            <span class="text-sm font-medium text-gray-900">From $249</span>
+                            <a href="#book-repair" class="ml-2 text-sm text-blue-600 hover:text-blue-800">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Battery Replacement -->
+                <div class="service-card group relative bg-gray-50 rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="w-full h-48 bg-gray-200 relative">
+                        <img class="w-full h-full object-cover" src="http://static.photos/technology/640x360/3" alt="Battery replacement">
+                        <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
+                            <i data-feather="battery" class="text-white h-12 w-12"></i>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-medium text-gray-900">Battery Replacement</h3>
+                        <p class="mt-1 text-sm text-gray-500">For iPhone, iPad, and MacBook devices</p>
+                        <div class="mt-4">
+                            <span class="text-sm font-medium text-gray-900">From $79</span>
+                            <a href="#book-repair" class="ml-2 text-sm text-blue-600 hover:text-blue-800">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Water Damage Repair -->
+                <div class="service-card group relative bg-gray-50 rounded-lg overflow-hidden shadow-md transition duration-300">
+                    <div class="w-full h-48 bg-gray-200 relative">
+                        <img class="w-full h-full object-cover" src="http://static.photos/technology/640x360/4" alt="Water damage repair">
+                        <div class="absolute inset-0 bg-black bg-opacity-30 flex items-center justify-center">
+                            <i data-feather="droplet" class="text-white h-12 w-12"></i>
+                        </div>
+                    </div>
+                    <div class="p-4">
+                        <h3 class="text-lg font-medium text-gray-900">Water Damage Repair</h3>
+                        <p class="mt-1 text-sm text-gray-500">Diagnosis and repair for liquid damaged devices</p>
+                        <div class="mt-4">
+                            <span class="text-sm font-medium text-gray-900">From $129</span>
+                            <a href="#book-repair" class="ml-2 text-sm text-blue-600 hover:text-blue-800">Book Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Book Repair Section -->
+    <div id="book-repair" class="py-12 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center mb-12">
+                <h2 class="text-base text-gray-500 font-medium tracking-wider">Book a Repair</h2>
+<p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    Fast & Convenient Service
+                </p>
+            </div>
+
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden">
+                <div class="p-6">
+                    <form id="repairForm">
+                        <div class="grid grid-cols-1 gap-6 sm:grid-cols-2">
+                            <div>
+                                <label for="device-type" class="block text-sm font-medium text-gray-700">Device Type</label>
+                                <select id="device-type" name="device-type" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                                    <option value="">Select your device</option>
+                                    <option value="iphone">iPhone</option>
+                                    <option value="ipad">iPad</option>
+                                    <option value="macbook">MacBook</option>
+                                    <option value="imac">iMac</option>
+                                    <option value="apple-watch">Apple Watch</option>
+                                </select>
+                            </div>
+
+                            <div>
+                                <label for="device-model" class="block text-sm font-medium text-gray-700">Device Model</label>
+                                <select id="device-model" name="device-model" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" disabled>
+                                    <option value="">Select model</option>
+                                </select>
+                            </div>
+                        </div>
+
+                        <div class="mt-6">
+                            <label class="block text-sm font-medium text-gray-700">Repair Type</label>
+                            <div class="mt-4 grid grid-cols-1 gap-4 sm:grid-cols-2">
+                                <div class="repair-option border border-gray-200 rounded-lg p-4 cursor-pointer" data-repair="screen">
+                                    <div class="flex items-center">
+                                <div class="flex-shrink-0 bg-gray-100 rounded-full p-2">
+                                    <i data-feather="smartphone" class="h-5 w-5 text-gray-600"></i>
+                                </div>
+<div class="ml-3">
+                                            <h4 class="font-medium">Screen Replacement</h4>
+                                            <p class="text-sm text-gray-500 mt-1">Cracked or broken display</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="repair-option border border-gray-200 rounded-lg p-4 cursor-pointer" data-repair="battery">
+                                    <div class="flex items-center">
+                                        <div class="flex-shrink-0 bg-blue-100 rounded-full p-2">
+                                            <i data-feather="battery" class="h-5 w-5 text-blue-600"></i>
+                                        </div>
+                                        <div class="ml-3">
+                                            <h4 class="font-medium">Battery Replacement</h4>
+                                            <p class="text-sm text-gray-500 mt-1">Poor battery life or swelling</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="repair-option border border-gray-200 rounded-lg p-4 cursor-pointer" data-repair="water-damage">
+                                    <div class="flex items-center">
+                                        <div class="flex-shrink-0 bg-blue-100 rounded-full p-2">
+                                            <i data-feather="droplet" class="h-5 w-5 text-blue-600"></i>
+                                        </div>
+                                        <div class="ml-3">
+                                            <h4 class="font-medium">Water Damage</h4>
+                                            <p class="text-sm text-gray-500 mt-1">Liquid contact repair</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="repair-option border border-gray-200 rounded-lg p-4 cursor-pointer" data-repair="other">
+                                    <div class="flex items-center">
+                                        <div class="flex-shrink-0 bg-blue-100 rounded-full p-2">
+                                            <i data-feather="settings" class="h-5 w-5 text-blue-600"></i>
+                                        </div>
+                                        <div class="ml-3">
+                                            <h4 class="font-medium">Other Issues</h4>
+                                            <p class="text-sm text-gray-500 mt-1">Buttons, cameras, etc.</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2">
+                            <div>
+                                <label for="delivery-option" class="block text-sm font-medium text-gray-700">Service Option</label>
+                                <select id="delivery-option" name="delivery-option" class="mt-1 block w-full py-2 px-3 border border-gray-300 bg-white rounded-md shadow-sm focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm">
+                                    <option value="in-store">In-Store Repair</option>
+                                    <option value="pickup">Pickup & Delivery Service ($20)</option>
+                                    <option value="mail-in">Mail-In Repair</option>
+                                </select>
+                            </div>
+
+                            <div id="pickup-details" class="hidden">
+                                <label for="pickup-address" class="block text-sm font-medium text-gray-700">Pickup Address</label>
+                                <input type="text" id="pickup-address" name="pickup-address" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="Enter your address">
+                            </div>
+                        </div>
+
+                        <div class="mt-6">
+                            <label for="contact-info" class="block text-sm font-medium text-gray-700">Contact Information</label>
+                            <div class="mt-1 grid grid-cols-1 gap-6 sm:grid-cols-3">
+                                <div>
+                                    <input type="text" id="name" name="name" class="block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="Full Name">
+                                </div>
+                                <div>
+                                    <input type="email" id="email" name="email" class="block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="Email">
+                                </div>
+                                <div>
+                                    <input type="tel" id="phone" name="phone" class="block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="Phone Number">
+                                </div>
+                            </div>
+                        </div>
+
+                        <div class="mt-6">
+                            <label for="notes" class="block text-sm font-medium text-gray-700">Repair Notes (optional)</label>
+                            <textarea id="notes" name="notes" rows="3" class="mt-1 block w-full border border-gray-300 rounded-md shadow-sm py-2 px-3 focus:outline-none focus:ring-blue-500 focus:border-blue-500 sm:text-sm" placeholder="Describe the issue in detail"></textarea>
+                        </div>
+
+                        <div class="mt-6 border-t border-gray-200 pt-6">
+                            <div class="flex justify-between">
+                                <span class="text-lg font-bold text-gray-900">Estimated Cost:</span>
+                                <span id="estimated-cost" class="text-lg font-bold text-blue-600">$0.00</span>
+                            </div>
+                            <p class="mt-1 text-sm text-gray-500">Final price may vary after diagnosis</p>
+                        </div>
+
+                        <div class="mt-6">
+                            <button type="submit" class="w-full bg-blue-600 hover:bg-blue-700 text-white px-4 py-3 rounded-md text-lg font-medium">
+                                Book Repair Now
+                            </button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Why Choose Us -->
+    <div class="py-12 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="lg:text-center">
+                <h2 class="text-base text-gray-500 font-medium tracking-wider">Why Choose Us</h2>
+<p class="mt-2 text-3xl leading-8 font-extrabold tracking-tight text-gray-900 sm:text-4xl">
+                    Apple Repairs Done Right
+                </p>
+            </div>
+
+            <div class="mt-10">
+                <div class="grid grid-cols-1 gap-10 sm:grid-cols-2 lg:grid-cols-4">
+                    <div class="text-center">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-full bg-gray-100 text-gray-900 mx-auto">
+<i data-feather="check-circle"></i>
+                        </div>
+                        <h3 class="mt-4 text-lg font-medium text-gray-900">Genuine Parts</h3>
+                        <p class="mt-1 text-sm text-gray-500">We use only Apple-certified parts for all repairs.</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-500 text-white mx-auto">
+                            <i data-feather="clock"></i>
+                        </div>
+                        <h3 class="mt-4 text-lg font-medium text-gray-900">Fast Turnaround</h3>
+                        <p class="mt-1 text-sm text-gray-500">Most repairs completed same day or within 24 hours.</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-500 text-white mx-auto">
+                            <i data-feather="shield"></i>
+                        </div>
+                        <h3 class="mt-4 text-lg font-medium text-gray-900">Warranty</h3>
+                        <p class="mt-1 text-sm text-gray-500">90-day warranty on all parts and labor.</p>
+                    </div>
+                    <div class="text-center">
+                        <div class="flex items-center justify-center h-12 w-12 rounded-md bg-blue-500 text-white mx-auto">
+                            <i data-feather="truck"></i>
+                        </div>
+                        <h3 class="mt-4 text-lg font-medium text-gray-900">Pickup & Delivery</h3>
+                        <p class="mt-1 text-sm text-gray-500">Convenient service for your busy schedule.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- CTA Section -->
+    <div class="bg-gray-900">
+<div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:py-16 lg:px-8 lg:flex lg:items-center lg:justify-between">
+            <h2 class="text-3xl font-extrabold tracking-tight text-white sm:text-4xl">
+                <span class="block">Ready to get your device fixed?</span>
+                <span class="block text-gray-400">Schedule your repair today.</span>
+</h2>
+            <div class="mt-8 flex lg:mt-0 lg:flex-shrink-0">
+                <div class="inline-flex rounded-md shadow">
+                    <a href="#book-repair" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gray-800 hover:bg-gray-700">
+Book Repair Now
+                    </a>
+                </div>
+                <div class="ml-3 inline-flex rounded-md shadow">
+                    <a href="#" class="inline-flex items-center justify-center px-5 py-3 border border-transparent text-base font-medium rounded-md text-white bg-gray-700 hover:bg-gray-600">
+Call Us: (555) 123-4567
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900">
+<div class="max-w-7xl mx-auto py-12 px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 gap-8 md:grid-cols-4">
+                <div>
+                    <h3 class="text-xs font-medium text-gray-500 tracking-wider uppercase">Services</h3>
+<ul class="mt-4 space-y-4">
+                        <li><a href="#" class="text-base text-gray-400 hover:text-white">iPhone Repairs</a></li>
+                        <li><a href="#" class="text-base text-gray-400 hover:text-white">MacBook Repairs</a></li>
+                        <li><a href="#" class="text-base text-gray-400 hover:text-white">iPad Repairs</a></li>
+                        <li><a href="#" class="text-base text-gray-400 hover:text-white">Other Devices</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xs font-medium text-gray-500 tracking-wider uppercase">Support</h3>
+<ul class="mt-4 space-y-4">
+                        <li><a href="#" class="text-base text-gray-400 hover:text-white">Pricing</a></li>
+                        <li><a href="#" class="text-base text-gray-400 hover:text-white">FAQs</a></li>
+                        <li><a href="#" class="text-base text-gray-400 hover:text-white">Warranty</a></li>
+                        <li><a href="#" class="text-base text-gray-400 hover:text-white">Contact Us</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xs font-medium text-gray-500 tracking-wider uppercase">Company</h3>
+<ul class="mt-4 space-y-4">
+                        <li><a href="#" class="text-base text-gray-400 hover:text-white">About</a></li>
+                        <li><a href="#" class="text-base text-gray-400 hover:text-white">Locations</a></li>
+                        <li><a href="#" class="text-base text-gray-400 hover:text-white">Careers</a></li>
+                        <li><a href="#" class="text-base text-gray-400 hover:text-white">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="text-xs font-medium text-gray-500 tracking-wider uppercase">Legal</h3>
+<ul class="mt-4 space-y-4">
+                        <li><a href="#" class="text-base text-gray-400 hover:text-white">Privacy</a></li>
+                        <li><a href="#" class="text-base text-gray-400 hover:text-white">Terms</a></li>
+                        <li><a href="#" class="text-base text-gray-400 hover:text-white">Cookie Policy</a></li>
+                    </ul>
+                </div>
+            </div>
+            <div class="mt-12 border-t border-gray-800 pt-8">
+<div class="md:flex md:items-center md:justify-between">
+                    <div class="flex justify-center space-x-6 md:order-2">
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i data-feather="facebook"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i data-feather="instagram"></i>
+                        </a>
+                        <a href="#" class="text-gray-400 hover:text-white">
+                            <i data-feather="twitter"></i>
+                        </a>
+                    </div>
+                    <div class="mt-8 md:mt-0 md:order-1">
+                        <p class="text-center text-sm text-gray-500">
+&copy; 2023 AppleRepairs. All rights reserved.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        feather.replace();
+
+        // Device model options based on device type
+        document.getElementById('device-type').addEventListener('change', function() {
+            const deviceType = this.value;
+            const modelSelect = document.getElementById('device-model');
+            modelSelect.innerHTML = '<option value="">Select model</option>';
+            modelSelect.disabled = !deviceType;
+
+            if (deviceType) {
+                let models = [];
+                switch(deviceType) {
+                    case 'iphone':
+                        models = ['iPhone 14 Pro Max', 'iPhone 14 Pro', 'iPhone 14', 'iPhone 13 Pro Max', 'iPhone 13 Pro', 'iPhone 13', 'iPhone 12 Pro Max', 'iPhone 12 Pro', 'iPhone 12', 'iPhone 11 Pro Max', 'iPhone 11 Pro', 'iPhone 11', 'iPhone XS Max', 'iPhone XS', 'iPhone XR', 'iPhone X', 'iPhone 8 Plus', 'iPhone 8', 'iPhone 7 Plus', 'iPhone 7', 'iPhone 6s Plus', 'iPhone 6s', 'iPhone SE (2nd gen)', 'iPhone SE (1st gen)'];
+                        break;
+                    case 'ipad':
+                        models = ['iPad Pro 12.9" (2022)', 'iPad Pro 12.9" (2021)', 'iPad Pro 11" (2022)', 'iPad Pro 11" (2021)', 'iPad Air (2022)', 'iPad Air (2020)', 'iPad (2022)', 'iPad (2021)', 'iPad (2020)', 'iPad mini (2021)', 'iPad mini (2019)'];
+                        break;
+                    case 'macbook':
+                        models = ['MacBook Pro 16" (M2, 2023)', 'MacBook Pro 16" (M1, 2021)', 'MacBook Pro 14" (M2, 2023)', 'MacBook Pro 14" (M1, 2021)', 'MacBook Pro 13" (M2, 2022)', 'MacBook Pro 13" (M1, 2020)', 'MacBook Air 15" (M2, 2023)', 'MacBook Air 13" (M2, 2022)', 'MacBook Air 13" (M1, 2020)'];
+                        break;
+                    case 'imac':
+                        models = ['iMac 24" (M1, 2021)', 'iMac 27" (2020)', 'iMac 21.5" (2019)'];
+                        break;
+                    case 'apple-watch':
+                        models = ['Apple Watch Ultra', 'Apple Watch Series 8', 'Apple Watch Series 7', 'Apple Watch SE (2nd gen)', 'Apple Watch SE (1st gen)', 'Apple Watch Series 6', 'Apple Watch Series 5', 'Apple Watch Series 4', 'Apple Watch Series 3'];
+                        break;
+                }
+
+                models.forEach(model => {
+                    const option = document.createElement('option');
+                    option.value = model.toLowerCase().replace(/ /g, '-');
+                    option.textContent = model;
+                    modelSelect.appendChild(option);
+                });
+            }
+        });
+
+        // Repair option selection
+        document.querySelectorAll('.repair-option').forEach(option => {
+            option.addEventListener('click', function() {
+                document.querySelectorAll('.repair-option').forEach(opt => {
+                    opt.classList.remove('border-blue-500', 'bg-blue-50');
+                });
+                this.classList.add('border-blue-500', 'bg-blue-50');
+                updateEstimatedCost();
+            });
+        });
+
+        // Delivery option change
+        document.getElementById('delivery-option').addEventListener('change', function() {
+            const pickupDetails = document.getElementById('pickup-details');
+            if (this.value === 'pickup') {
+                pickupDetails.classList.remove('hidden');
+            } else {
+                pickupDetails.classList.add('hidden');
+            }
+            updateEstimatedCost();
+        });
+
+        // Update estimated cost
+        function updateEstimatedCost() {
+            const deviceType = document.getElementById('device-type').value;
+            const repairOption = document.querySelector('.repair-option.border-blue-500');
+            const deliveryOption = document.getElementById('delivery-option').value;
+
+            if (!deviceType || !repairOption) {
+                document.getElementById('estimated-cost').textContent = '$0.00';
+                return;
+            }
+
+            let basePrice = 0;
+            const repairType = repairOption.dataset.repair;
+
+            // Simplified pricing logic (would be more complex in real app)
+            if (repairType === 'screen') {
+                if (deviceType === 'iphone') basePrice = 99;
+                else if (deviceType === 'ipad') basePrice = 149;
+                else if (deviceType === 'macbook') basePrice = 249;
+                else if (deviceType === 'imac') basePrice = 349;
+                else if (deviceType === 'apple-watch') basePrice = 129;
+            } else if (repairType === 'battery') {
+                if (deviceType === 'iphone') basePrice = 79;
+                else if (deviceType === 'ipad') basePrice = 99;
+                else if (deviceType === 'macbook') basePrice = 129;
+                else if (deviceType === 'apple-watch') basePrice = 89;
+            } else if (repairType === 'water-damage') {
+                basePrice = 129; // Starting price for diagnosis
+            } else if (repairType === 'other') {
+                basePrice = 59; // Starting price for diagnosis
+            }
+
+            // Add delivery fee if selected
+            if (deliveryOption === 'pickup') {
+                basePrice += 20;
+            }
+
+            document.getElementById('estimated-cost').textContent = `$${basePrice.toFixed(2)}`;
+        }
+
+        // Form submission
+        document.getElementById('repairForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your repair request! We will contact you shortly to confirm details.');
+            this.reset();
+            document.getElementById('estimated-cost').textContent = '$0.00';
+            document.getElementById('pickup-details').classList.add('hidden');
+            document.querySelectorAll('.repair-option').forEach(opt => {
+                opt.classList.remove('border-blue-500', 'bg-blue-50');
+            });
+        });
+    </script>
+</body>
+</html>
