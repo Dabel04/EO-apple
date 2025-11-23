@@ -258,3 +258,72 @@ function proceedToCheckout() {
     showNotification('Proceeding to checkout...');
     // In a real application, this would redirect to checkout page
 }
+// Mobile Menu Functions
+function toggleMobileMenu() {
+    const mobileMenu = document.getElementById('mobileMenuOverlay');
+    const menuToggle = document.querySelector('.mobile-menu-toggle');
+    
+    mobileMenu.classList.toggle('active');
+    menuToggle.classList.toggle('active');
+    
+    // Prevent body scroll when menu is open
+    document.body.style.overflow = mobileMenu.classList.contains('active') ? 'hidden' : '';
+}
+
+function closeMobileMenu() {
+    const mobileMenu = document.getElementById('mobileMenuOverlay');
+    const menuToggle = document.querySelector('.mobile-menu-toggle');
+    
+    mobileMenu.classList.remove('active');
+    menuToggle.classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+// Close mobile menu when clicking outside
+document.addEventListener('click', function(event) {
+    const mobileMenu = document.getElementById('mobileMenuOverlay');
+    const menuToggle = document.querySelector('.mobile-menu-toggle');
+    
+    if (mobileMenu.classList.contains('active') && 
+        !mobileMenu.contains(event.target) && 
+        !menuToggle.contains(event.target)) {
+        closeMobileMenu();
+    }
+});
+
+// Update mobile cart badge
+function updateCartBadge() {
+    const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+    document.querySelector('.cart-btn').textContent = totalItems;
+    document.querySelector('.cart-badge-mobile').textContent = totalItems;
+}
+
+// Close mobile menu on escape key
+document.addEventListener('keydown', function(event) {
+    if (event.key === 'Escape') {
+        closeMobileMenu();
+    }
+});
+
+// Enhanced search functionality for mobile
+function toggleSearch() {
+    const searchBar = document.getElementById('searchBar');
+    const isActive = searchBar.classList.toggle('active');
+    
+    if (isActive) {
+        document.getElementById('searchInput').focus();
+        // Close mobile menu if open
+        closeMobileMenu();
+    }
+}
+
+// Update the existing updateCartBadge function to also update mobile badge
+// Replace your existing updateCartBadge function with this:
+function updateCartBadge() {
+    const totalItems = cart.reduce((total, item) => total + item.quantity, 0);
+    document.querySelector('.cart-btn').textContent = totalItems;
+    const mobileBadge = document.querySelector('.cart-badge-mobile');
+    if (mobileBadge) {
+        mobileBadge.textContent = totalItems;
+    }
+}

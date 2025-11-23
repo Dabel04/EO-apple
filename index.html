@@ -42,6 +42,15 @@
 
     <header class="nav">
         <div class="logo">Mixtas</div>
+        
+        <!-- Mobile Menu Toggle -->
+        <button class="mobile-menu-toggle" onclick="toggleMobileMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </button>
+
+        <!-- Original Navigation Structure -->
         <nav class="menu">
             <a href="#" class="active">Home</a>
             <a href="#shop">Shop</a>
@@ -49,6 +58,7 @@
             <a href="#blog">Blog</a>
             <a href="#contact">Contact Us</a>
         </nav>
+        
         <div class="icons">
             <div class="small icon-btn search-btn" onclick="toggleSearch()">🔍</div>
             <div class="small icon-btn favorite-btn" onclick="toggleFavorites()">
@@ -64,6 +74,24 @@
             <button class="search-close" onclick="toggleSearch()">×</button>
         </div>
     </header>
+
+    <!-- Mobile Menu Overlay -->
+    <div class="mobile-menu-overlay" id="mobileMenuOverlay">
+        <nav class="mobile-menu">
+            <a href="#" class="active" onclick="closeMobileMenu()">Home</a>
+            <a href="#shop" onclick="closeMobileMenu()">Shop</a>
+            <a href="#new-arrivals" onclick="closeMobileMenu()">New Arrivals</a>
+            <a href="#blog" onclick="closeMobileMenu()">Blog</a>
+            <a href="#contact" onclick="closeMobileMenu()">Contact Us</a>
+            
+            <div class="mobile-menu-icons">
+                <div class="icon-btn" onclick="toggleSearch(); closeMobileMenu();">🔍 Search</div>
+                <div class="icon-btn" onclick="toggleFavorites(); closeMobileMenu();">♡ Favorites (<span class="favorite-count-mobile">0</span>)</div>
+                <div class="icon-btn" onclick="closeMobileMenu();">👤 Account</div>
+                <div class="icon-btn" onclick="openCart(); closeMobileMenu();">🛒 Cart (<span class="cart-badge-mobile">0</span>)</div>
+            </div>
+        </nav>
+    </div>
 
     <section class="hero">
         <div class="hero-inner">
@@ -92,12 +120,14 @@
         <!-- Product Grid -->
         <div class="grid">
             <div class="card" data-category="men">
-                <div class="img">
-                    <img src="./img/f3.jpg" alt="Adidas X Pop Polo Shirt">
-                    <button class="favorite-btn" onclick="toggleFavorite(this)">♡</button>
-                </div>
-                <div class="title">JACKETS<span class="small">adidas X Pop Polo shirt, navy / blue</span></div>
-                <div class="price">$69.99</div>
+                <a href="product-details.html?id=1" class="card-link">
+                    <div class="img">
+                        <img src="./img/f3.jpg" alt="Adidas X Pop Polo Shirt">
+                        <button class="favorite-btn" onclick="event.preventDefault(); toggleFavorite(this)">♡</button>
+                    </div>
+                    <div class="title">JACKETS<span class="small">adidas X Pop Polo shirt, navy / blue</span></div>
+                    <div class="price">$69.99</div>
+                </a>
                 <div class="card-actions">
                     <button class="quick-view-btn" onclick="quickView(1)">Quick View</button>
                     <button class="add-to-cart" onclick="addToCart(1)">Add to Cart</button>
@@ -105,12 +135,14 @@
             </div>
 
             <div class="card" data-category="men">
-                <div class="img">
-                    <img src="./img/f2.jpg" alt="Adidas X Pop TRX Vintage">
-                    <button class="favorite-btn" onclick="toggleFavorite(this)">♡</button>
-                </div>
-                <div class="title">JACKETS<span class="small">adidas X Pop TRX Vintage, navy / white</span></div>
-                <div class="price">$69.99</div>
+                <a href="product-details.html?id=2" class="card-link">
+                    <div class="img">
+                        <img src="./img/f2.jpg" alt="Adidas X Pop TRX Vintage">
+                        <button class="favorite-btn" onclick="event.preventDefault(); toggleFavorite(this)">♡</button>
+                    </div>
+                    <div class="title">JACKETS<span class="small">adidas X Pop TRX Vintage, navy / white</span></div>
+                    <div class="price">$69.99</div>
+                </a>
                 <div class="card-actions">
                     <button class="quick-view-btn" onclick="quickView(2)">Quick View</button>
                     <button class="add-to-cart" onclick="addToCart(2)">Add to Cart</button>
@@ -118,12 +150,14 @@
             </div>
 
             <div class="card" data-category="men">
-                <div class="img">
-                    <img src="./img/f1.jpg" alt="Adidas X Pop Beckenbauer Track Jacket">
-                    <button class="favorite-btn" onclick="toggleFavorite(this)">♡</button>
-                </div>
-                <div class="title">JACKETS<span class="small">adidas X Pop Beckenbauer Track Jacket</span></div>
-                <div class="price">$129.00</div>
+                <a href="product-details.html?id=3" class="card-link">
+                    <div class="img">
+                        <img src="./img/f1.jpg" alt="Adidas X Pop Beckenbauer Track Jacket">
+                        <button class="favorite-btn" onclick="event.preventDefault(); toggleFavorite(this)">♡</button>
+                    </div>
+                    <div class="title">JACKETS<span class="small">adidas X Pop Beckenbauer Track Jacket</span></div>
+                    <div class="price">$129.00</div>
+                </a>
                 <div class="card-actions">
                     <button class="quick-view-btn" onclick="quickView(3)">Quick View</button>
                     <button class="add-to-cart" onclick="addToCart(3)">Add to Cart</button>
@@ -173,7 +207,7 @@
                 <div class="img">
                     <div class="skeleton" style="width:100%;height:140px;"></div>
                     <button class="favorite-btn" onclick="toggleFavorite(this)">♡</button>
-                <div class="sale-badge">SALE</div>
+                    <div class="sale-badge">SALE</div>
                 </div>
                 <div class="title">JACKETS<span class="small">Parra Rug Pull t-shirt, white</span></div>
                 <div class="price">$60.00 <span class="original-price">$80.00</span></div>
