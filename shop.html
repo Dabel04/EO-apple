@@ -1,0 +1,487 @@
+<!DOCTYPE html>
+<html class="dark" lang="en">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>EO Apple Store Shop Page</title>
+    <!-- Google Fonts -->
+    <link href="https://fonts.googleapis.com" rel="preconnect"/>
+    <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet"/>
+    <!-- Material Symbols -->
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <!-- Tailwind CSS -->
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <!-- Tailwind Config -->
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "primary": "#FADADD",
+                        // Adjusted transparent colors for the new glass effect
+                        "background-dark": "rgba(10, 10, 12, 0.4)", 
+                        "card-dark": "rgba(20, 20, 25, 0.4)", 
+                        "border-dark": "rgba(255, 255, 255, 0.15)",
+                        "text-muted": "#a1a1a6"
+                    },
+                    fontFamily: {
+                        "display": ["Manrope", "sans-serif"]
+                    },
+                    animation: {
+                        'blob': 'blob 20s infinite alternate cubic-bezier(0.4, 0, 0.2, 1)',
+                        'blob-reverse': 'blob-reverse 25s infinite alternate cubic-bezier(0.4, 0, 0.2, 1)',
+                        'blob-slow': 'blob 30s infinite alternate-reverse cubic-bezier(0.4, 0, 0.2, 1)',
+                    },
+                    keyframes: {
+                        blob: {
+                            '0%': { transform: 'translate(0px, 0px) scale(1) rotate(0deg)' },
+                            '33%': { transform: 'translate(100px, -50px) scale(1.2) rotate(45deg)' },
+                            '66%': { transform: 'translate(-50px, 50px) scale(0.8) rotate(90deg)' },
+                            '100%': { transform: 'translate(20px, -20px) scale(1.1) rotate(135deg)' },
+                        },
+                        'blob-reverse': {
+                            '0%': { transform: 'translate(0px, 0px) scale(1) rotate(0deg)' },
+                            '50%': { transform: 'translate(-80px, 40px) scale(1.3) rotate(-60deg)' },
+                            '100%': { transform: 'translate(40px, -60px) scale(0.9) rotate(-120deg)' },
+                        }
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        /* Custom scrollbar */
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: #050507; }
+        ::-webkit-scrollbar-thumb { background: #444; border-radius: 4px; border: 2px solid #050507; }
+        ::-webkit-scrollbar-thumb:hover { background: #FADADD; }
+        
+        body {
+            background-color: #000000;
+            min-height: 100vh;
+            /* Static gradient base */
+            background-image: radial-gradient(circle at center, #111115 0%, #000000 100%);
+        }
+
+        /* Enhanced Liquid Glass Effect */
+        .glass-panel {
+            /* Lighter, more translucent background */
+            background: rgba(40, 40, 50, 0.25); 
+            /* Heavy blur for depth */
+            backdrop-filter: blur(40px) saturate(180%);
+            -webkit-backdrop-filter: blur(40px) saturate(180%);
+            /* Sophisticated border handling for the "liquid" edge */
+            border: 1px solid rgba(255, 255, 255, 0.12);
+            border-top: 1px solid rgba(255, 255, 255, 0.2); /* Highlight top edge */
+            border-bottom: 1px solid rgba(255, 255, 255, 0.05); /* Shadow bottom edge */
+            box-shadow: 
+                0 4px 30px rgba(0, 0, 0, 0.1),
+                inset 0 0 0 1px rgba(255, 255, 255, 0.05); /* Inner rim light */
+        }
+        
+        /* Smooth transitions for interactive elements */
+        .glass-panel:hover {
+            border-color: rgba(255, 255, 255, 0.25);
+            background: rgba(60, 60, 70, 0.35); 
+        }
+
+        /* Utility for animation delay */
+        .animation-delay-2000 { animation-delay: 2s; }
+        .animation-delay-4000 { animation-delay: 4s; }
+        .animation-delay-6000 { animation-delay: 6s; }
+    </style>
+</head>
+<body class="font-display text-white selection:bg-primary selection:text-black overflow-x-hidden">
+
+<!-- Enhanced Fluid Background Animation -->
+<div class="fixed inset-0 overflow-hidden pointer-events-none -z-10">
+    <!-- Center/Left Rose Gold Orb -->
+    <div class="absolute top-[10%] left-[20%] w-[500px] h-[500px] bg-primary/20 rounded-full mix-blend-screen filter blur-[100px] opacity-40 animate-blob"></div>
+    
+    <!-- Top Right Deep Purple/Blue Orb -->
+    <div class="absolute top-[5%] right-[10%] w-[450px] h-[450px] bg-indigo-600/25 rounded-full mix-blend-screen filter blur-[100px] opacity-40 animate-blob-reverse animation-delay-2000"></div>
+    
+    <!-- Bottom Left Secondary Rose Orb -->
+    <div class="absolute bottom-[10%] left-[10%] w-[600px] h-[600px] bg-rose-400/10 rounded-full mix-blend-screen filter blur-[120px] opacity-30 animate-blob-slow animation-delay-4000"></div>
+    
+    <!-- Bottom Right Accent Orb -->
+    <div class="absolute bottom-[20%] right-[20%] w-[400px] h-[400px] bg-purple-500/15 rounded-full mix-blend-screen filter blur-[90px] opacity-30 animate-blob animation-delay-6000"></div>
+</div>
+
+<!-- Top Navigation -->
+<header class="sticky top-0 z-50 w-full glass-panel border-b-0 rounded-b-2xl lg:rounded-none lg:border-b lg:border-white/10 mx-4 lg:mx-0 mt-2 lg:mt-0 max-w-[calc(100%-2rem)] lg:max-w-full">
+    <div class="px-4 lg:px-40 py-3 flex items-center justify-between">
+        <div class="flex items-center gap-8">
+            <!-- Logo -->
+            <a class="flex items-center gap-3 text-white hover:opacity-90 transition-opacity" href="#">
+                <div class="size-6 text-primary">
+                    <svg fill="currentColor" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M4 4H17.3334V17.3334H30.6666V30.6666H44V44H4V4Z"></path>
+                    </svg>
+                </div>
+                <h2 class="text-xl font-bold tracking-tight">EO Store</h2>
+            </a>
+            <!-- Desktop Nav Links -->
+            <nav class="hidden md:flex items-center gap-8">
+                <a class="text-white text-sm font-medium hover:text-primary transition-colors" href="#">Shop</a>
+                <a class="text-text-muted text-sm font-medium hover:text-white transition-colors" href="repairs.html">Repairs</a>
+                <a class="text-text-muted text-sm font-medium hover:text-white transition-colors" href="about.html">About</a>
+                <a class="text-text-muted text-sm font-medium hover:text-white transition-colors" href="contact.html">Support</a>
+            </nav>
+        </div>
+        <!-- Actions -->
+        <div class="flex items-center gap-4">
+            <div class="hidden lg:flex w-64 items-center rounded-full bg-black/20 border border-white/5 focus-within:border-primary/50 transition-colors h-10 px-3 hover:bg-black/30">
+                <span class="material-symbols-outlined text-text-muted text-[20px]">search</span>
+                <input class="w-full bg-transparent border-none text-sm text-white placeholder:text-text-muted focus:ring-0" placeholder="Search products..."/>
+            </div>
+            <div class="flex gap-2">
+                <button class="flex items-center justify-center size-10 rounded-full bg-white/5 hover:bg-white/15 text-white transition-colors relative border border-white/5">
+                    <span class="material-symbols-outlined text-[20px]">shopping_cart</span>
+                    <span class="absolute top-2 right-2 size-2 bg-primary rounded-full box-content border border-black"></span>
+                </button>
+                <button class="flex items-center justify-center size-10 rounded-full bg-white/5 hover:bg-white/15 text-white transition-colors border border-white/5">
+                    <span class="material-symbols-outlined text-[20px]">person</span>
+                </button>
+            </div>
+        </div>
+    </div>
+</header>
+<main class="flex-1 flex flex-col w-full max-w-[1440px] mx-auto relative z-10">
+    <!-- Hero Section -->
+    <div class="px-4 lg:px-40 py-6">
+        <!-- Added glass border and shadow to hero container -->
+        <div class="relative w-full rounded-3xl overflow-hidden min-h-[400px] flex items-center bg-cover bg-center border border-white/10 shadow-2xl shadow-black/50" data-alt="Sleek dark gradient background showcasing premium Apple devices" style='background-image: linear-gradient(to right, rgba(0,0,0,0.8) 0%, rgba(20,20,25,0.2) 100%), url("https://lh3.googleusercontent.com/aida-public/AB6AXuBZKSuZpbbFy1MiKmt05ga6ivcvOtrGii1SLWNcanyKyQ9yt9PKFYkhZwj6-CvbUFljdhGSNHVxphPd8zn02vkk7zeEyv2pf2M7lX_5HEp0FFDr1qhLTFzbxWvRpBSfvUECFdtgldPFtDy3BMat_JxCVzOK_ieXg6N0gGqKF6_u_2o3m-X5D_iCQB6IBoq8T3ANiY3Zu1YbE-zi0syqj8WdC6oX_EZcuLZf-mKmoxL4RWsPUM--L3TaDZicGBVvDv-OsBgbjlStxJ8");'>
+            <div class="relative z-10 px-8 lg:px-16 max-w-2xl flex flex-col gap-6">
+                <span class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/20 backdrop-blur-md text-primary text-xs font-bold border border-primary/20 w-fit">
+                    <span class="material-symbols-outlined text-[16px]">verified</span>
+                    EO Certified
+                </span>
+                <h1 class="text-4xl md:text-6xl font-black text-white leading-tight tracking-tight drop-shadow-lg">
+                    Like new.<br/> For less.
+                </h1>
+                <p class="text-lg text-white/90 font-medium max-w-md drop-shadow-md">
+                    Experience premium Apple devices meticulously restored to perfection. Quality you can trust, prices you'll love.
+                </p>
+                <div class="flex gap-4 pt-2">
+                    <button class="h-12 px-8 rounded-full bg-white text-black font-bold text-sm hover:bg-gray-100 transition-colors shadow-lg hover:shadow-xl hover:-translate-y-0.5 transform duration-200">
+                        Shop Featured
+                    </button>
+                    <button class="h-12 px-8 rounded-full bg-white/10 backdrop-blur-md text-white font-bold text-sm hover:bg-white/20 transition-colors border border-white/20 shadow-lg">
+                        Learn More
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- Breadcrumbs & Layout Wrapper -->
+    <div class="px-4 lg:px-40 pb-20 flex-1 flex flex-col lg:flex-row gap-10">
+        <!-- Sidebar Filters -->
+        <aside class="hidden lg:block w-64 shrink-0 pt-2">
+            <div class="sticky top-28 flex flex-col gap-8">
+                <div class="flex items-center gap-2 text-sm font-medium mb-4">
+                    <a class="text-text-muted hover:text-white transition-colors" href="#">Home</a>
+                    <span class="text-text-muted">/</span>
+                    <span class="text-white">Shop All</span>
+                </div>
+                <div class="glass-panel p-5 rounded-2xl flex flex-col gap-6">
+                    <div class="flex flex-col gap-3">
+                        <h3 class="text-white font-bold text-sm uppercase tracking-wider opacity-80">Price Range</h3>
+                        <div class="flex gap-2 items-center text-sm text-text-muted mb-2">
+                            <span class="bg-black/20 px-3 py-1 rounded-md border border-white/5">$0</span>
+                            <span class="h-[1px] w-4 bg-white/10"></span>
+                            <span class="bg-black/20 px-3 py-1 rounded-md border border-white/5">$2000+</span>
+                        </div>
+                        <input class="w-full accent-primary bg-white/10 h-1 rounded-lg appearance-none cursor-pointer" type="range"/>
+                    </div>
+                    <div class="w-full h-[1px] bg-white/10"></div>
+                    <div class="flex flex-col gap-3">
+                        <h3 class="text-white font-bold text-sm uppercase tracking-wider opacity-80">Condition</h3>
+                        <label class="flex items-center gap-3 cursor-pointer group">
+                            <input checked="" class="w-5 h-5 rounded border-white/20 bg-black/20 text-primary focus:ring-primary focus:ring-offset-black transition-colors" type="checkbox"/>
+                            <span class="text-text-muted group-hover:text-white transition-colors text-sm">Excellent (Like New)</span>
+                        </label>
+                        <label class="flex items-center gap-3 cursor-pointer group">
+                            <input class="w-5 h-5 rounded border-white/20 bg-black/20 text-primary focus:ring-primary focus:ring-offset-black transition-colors" type="checkbox"/>
+                            <span class="text-text-muted group-hover:text-white transition-colors text-sm">Good</span>
+                        </label>
+                        <label class="flex items-center gap-3 cursor-pointer group">
+                            <input class="w-5 h-5 rounded border-white/20 bg-black/20 text-primary focus:ring-primary focus:ring-offset-black transition-colors" type="checkbox"/>
+                            <span class="text-text-muted group-hover:text-white transition-colors text-sm">Fair</span>
+                        </label>
+                    </div>
+                    <div class="w-full h-[1px] bg-white/10"></div>
+                    <div class="flex flex-col gap-3">
+                        <h3 class="text-white font-bold text-sm uppercase tracking-wider opacity-80">Series</h3>
+                        <label class="flex items-center gap-3 cursor-pointer group">
+                            <input checked="" class="w-5 h-5 rounded border-white/20 bg-black/20 text-primary focus:ring-primary focus:ring-offset-black transition-colors" type="checkbox"/>
+                            <span class="text-text-muted group-hover:text-white transition-colors text-sm">iPhone 14 Series</span>
+                        </label>
+                        <label class="flex items-center gap-3 cursor-pointer group">
+                            <input class="w-5 h-5 rounded border-white/20 bg-black/20 text-primary focus:ring-primary focus:ring-offset-black transition-colors" type="checkbox"/>
+                            <span class="text-text-muted group-hover:text-white transition-colors text-sm">iPhone 13 Series</span>
+                        </label>
+                        <label class="flex items-center gap-3 cursor-pointer group">
+                            <input class="w-5 h-5 rounded border-white/20 bg-black/20 text-primary focus:ring-primary focus:ring-offset-black transition-colors" type="checkbox"/>
+                            <span class="text-text-muted group-hover:text-white transition-colors text-sm">MacBook Air</span>
+                        </label>
+                        <label class="flex items-center gap-3 cursor-pointer group">
+                            <input class="w-5 h-5 rounded border-white/20 bg-black/20 text-primary focus:ring-primary focus:ring-offset-black transition-colors" type="checkbox"/>
+                            <span class="text-text-muted group-hover:text-white transition-colors text-sm">MacBook Pro</span>
+                        </label>
+                    </div>
+                </div>
+            </div>
+        </aside>
+        <!-- Main Content Area -->
+        <div class="flex-1 flex flex-col gap-6">
+            <!-- Category Chips & Mobile Search -->
+            <div class="flex flex-col gap-4">
+                <!-- Mobile Search (Visible only on mobile) -->
+                <div class="lg:hidden">
+                    <div class="flex w-full items-center rounded-xl bg-card-dark border border-border-dark h-12 px-4 glass-panel">
+                        <span class="material-symbols-outlined text-text-muted">search</span>
+                        <input class="w-full bg-transparent border-none text-base text-white placeholder:text-text-muted focus:ring-0 ml-2" placeholder="Search..."/>
+                    </div>
+                </div>
+                <!-- Filter Chips -->
+                <div class="flex gap-3 overflow-x-auto pb-2 scrollbar-hide py-1">
+                    <button class="flex items-center justify-center px-6 h-10 rounded-full bg-white text-black text-sm font-bold whitespace-nowrap hover:bg-gray-100 shadow-[0_0_15px_rgba(255,255,255,0.15)] transition-all transform hover:scale-105">
+                        All Devices
+                    </button>
+                    <button class="flex items-center justify-center px-6 h-10 rounded-full glass-panel text-white hover:bg-white/10 text-sm font-medium whitespace-nowrap transition-all hover:border-white/30 hover:shadow-lg">
+                        iPhones
+                    </button>
+                    <button class="flex items-center justify-center px-6 h-10 rounded-full glass-panel text-white hover:bg-white/10 text-sm font-medium whitespace-nowrap transition-all hover:border-white/30 hover:shadow-lg">
+                        MacBooks
+                    </button>
+                    <button class="flex items-center justify-center px-6 h-10 rounded-full glass-panel text-white hover:bg-white/10 text-sm font-medium whitespace-nowrap transition-all hover:border-white/30 hover:shadow-lg">
+                        iPads
+                    </button>
+                    <button class="flex items-center justify-center px-6 h-10 rounded-full glass-panel text-white hover:bg-white/10 text-sm font-medium whitespace-nowrap transition-all hover:border-white/30 hover:shadow-lg">
+                        Apple Watch
+                    </button>
+                    <button class="flex items-center justify-center px-6 h-10 rounded-full glass-panel text-white hover:bg-white/10 text-sm font-medium whitespace-nowrap transition-all hover:border-white/30 hover:shadow-lg">
+                        Accessories
+                    </button>
+                </div>
+                <div class="flex justify-between items-center mt-2 px-1">
+                    <p class="text-white font-medium text-lg drop-shadow-sm">Showing 24 Results</p>
+                    <div class="flex items-center gap-2 group cursor-pointer">
+                        <span class="text-text-muted text-sm hidden sm:inline group-hover:text-white transition-colors">Sort by:</span>
+                        <select class="bg-transparent text-white text-sm font-medium border-none focus:ring-0 cursor-pointer pr-8 py-0">
+                            <option class="bg-gray-900">Featured</option>
+                            <option class="bg-gray-900">Price: Low to High</option>
+                            <option class="bg-gray-900">Price: High to Low</option>
+                            <option class="bg-gray-900">Newest Arrivals</option>
+                        </select>
+                    </div>
+                </div>
+            </div>
+            <!-- Product Grid -->
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+                <!-- Product Card 1 -->
+                <div class="group relative flex flex-col rounded-3xl glass-panel p-4 transition-all duration-300 hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-2">
+                    <div class="relative aspect-square w-full overflow-hidden rounded-2xl bg-black/30 mb-4 flex items-center justify-center border border-white/5">
+                        <span class="absolute top-3 left-3 bg-primary/90 backdrop-blur text-black text-[10px] font-bold uppercase px-3 py-1.5 rounded-full z-10 tracking-wide shadow-lg">
+                            Best Seller
+                        </span>
+                        <button class="absolute top-3 right-3 p-2 rounded-full bg-black/30 backdrop-blur-md text-white opacity-0 group-hover:opacity-100 transition-opacity hover:bg-black/50 border border-white/10">
+                            <span class="material-symbols-outlined text-[20px]">favorite</span>
+                        </button>
+                        <img alt="iPhone 15 Pro Max Natural Titanium" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="iPhone 15 Pro Max back view showing titanium finish" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBfoem9HwTNFnDLKUJNnwAevxhsTiX2ii3Ylirbl9Uc6p92chFDU3FdPuRVB7DgMWDxa7HVjB5zooRv_72xxZ4fTUQEwgx0jPH0xiIqyh3p5QJc9qzSTH8TqIVsSgYQ-lMVbltA-qYB23N_-cj5zPGfOQ0kmENMjwqkTqXqC7u5fzghuoNdqW2lxCiL7NGQ8h0YYAQcnDV41kge2-c1YF3ZZKPABCQIzIVz0MZDk7PsKmF1sRlWnxBWUo1p5-VTHyNWc_scu4btNrE"/>
+                    </div>
+                    <div class="flex flex-col gap-1 mb-2 px-1">
+                        <h3 class="text-white text-lg font-bold truncate group-hover:text-primary transition-colors">iPhone 15 Pro Max</h3>
+                        <p class="text-text-muted text-sm">256GB - Natural Titanium</p>
+                    </div>
+                    <div class="mt-auto flex items-end justify-between px-1 pb-1">
+                        <div class="flex flex-col">
+                            <span class="text-xs text-text-muted line-through">$1,199</span>
+                            <span class="text-xl font-bold text-white">$1,049</span>
+                        </div>
+                        <button class="flex items-center justify-center size-10 rounded-full bg-white text-black shadow-lg hover:bg-primary hover:scale-110 transition-all duration-300">
+                            <span class="material-symbols-outlined text-[20px] font-bold">add</span>
+                        </button>
+                    </div>
+                </div>
+                <!-- Product Card 2 -->
+                <div class="group relative flex flex-col rounded-3xl glass-panel p-4 transition-all duration-300 hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-2">
+                    <div class="relative aspect-square w-full overflow-hidden rounded-2xl bg-black/30 mb-4 flex items-center justify-center border border-white/5">
+                        <span class="absolute top-3 left-3 bg-white/20 backdrop-blur-md text-white border border-white/20 text-[10px] font-bold uppercase px-3 py-1.5 rounded-full z-10 tracking-wide shadow-lg">
+                            Like New
+                        </span>
+                        <button class="absolute top-3 right-3 p-2 rounded-full bg-black/30 backdrop-blur-md text-white opacity-0 group-hover:opacity-100 transition-opacity hover:bg-black/50 border border-white/10">
+                            <span class="material-symbols-outlined text-[20px]">favorite</span>
+                        </button>
+                        <img alt="MacBook Pro 14 inch" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="MacBook Pro displaying a colorful abstract wallpaper" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDGbML6XsvijZuLcVelNahgMXTgeFMxSZTYCijxLBVBkGaZ6hX7WlX8m5akVr43hQMwESMkcu_DyeTVyV-pt3TQ-AihH5FO_FdBJh17VO8HWwuVj9bKhV3aFMY4-Fol7VxWFb4HBEDjhCh09a-Gbrp-5S_gP4B-_VGrzIr8jV3R_54j7TBU9g9-J1gkD7F5BeR7xft9VidxLD9lE8evACVRaO7nnVtOKwdwWT9LuT4DKoz4xYmlDtC6KMLBJ_qX17zZLA8z0dktxx8"/>
+                    </div>
+                    <div class="flex flex-col gap-1 mb-2 px-1">
+                        <h3 class="text-white text-lg font-bold truncate group-hover:text-primary transition-colors">MacBook Pro 14" M2</h3>
+                        <p class="text-text-muted text-sm">512GB - Space Gray</p>
+                    </div>
+                    <div class="mt-auto flex items-end justify-between px-1 pb-1">
+                        <div class="flex flex-col">
+                            <span class="text-xs text-text-muted line-through">$1,999</span>
+                            <span class="text-xl font-bold text-white">$1,549</span>
+                        </div>
+                        <button class="flex items-center justify-center size-10 rounded-full bg-white text-black shadow-lg hover:bg-primary hover:scale-110 transition-all duration-300">
+                            <span class="material-symbols-outlined text-[20px] font-bold">add</span>
+                        </button>
+                    </div>
+                </div>
+                <!-- Product Card 3 -->
+                <div class="group relative flex flex-col rounded-3xl glass-panel p-4 transition-all duration-300 hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-2">
+                    <div class="relative aspect-square w-full overflow-hidden rounded-2xl bg-black/30 mb-4 flex items-center justify-center border border-white/5">
+                        <button class="absolute top-3 right-3 p-2 rounded-full bg-black/30 backdrop-blur-md text-white opacity-0 group-hover:opacity-100 transition-opacity hover:bg-black/50 border border-white/10">
+                            <span class="material-symbols-outlined text-[20px]">favorite</span>
+                        </button>
+                        <img alt="iPad Air Blue" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="iPad Air with a blue case resting on a desk" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUj05ge21qQycKSBC7pVPYBsg9bxSXPQIkQnZfIolLDJ5HTeXuPfUhWDN2dmVe694tt6aep1000fx4_pz4XDsoIOGJsKrVttZBKAIS3xe1qH7M8vsuHFPJnXBPB4Pp5gPvK6VZRv5bYOriWvxSvwpaobjn_vHuBWQLWF_uioEaFAHlLyrjFboOf1hWZTgt0DFLrlXSZ1EH5VBtXjgjN3gJs1igTJvu8KAhOSmSmyCsrVqdQcRlx7FHKwylklgw2MRO4QOVwToxC6M"/>
+                    </div>
+                    <div class="flex flex-col gap-1 mb-2 px-1">
+                        <h3 class="text-white text-lg font-bold truncate group-hover:text-primary transition-colors">iPad Air (5th Gen)</h3>
+                        <p class="text-text-muted text-sm">64GB - Blue - Wi-Fi</p>
+                    </div>
+                    <div class="mt-auto flex items-end justify-between px-1 pb-1">
+                        <div class="flex flex-col">
+                            <span class="text-xs text-text-muted line-through">$599</span>
+                            <span class="text-xl font-bold text-white">$479</span>
+                        </div>
+                        <button class="flex items-center justify-center size-10 rounded-full bg-white text-black shadow-lg hover:bg-primary hover:scale-110 transition-all duration-300">
+                            <span class="material-symbols-outlined text-[20px] font-bold">add</span>
+                        </button>
+                    </div>
+                </div>
+                <!-- Product Card 4 -->
+                <div class="group relative flex flex-col rounded-3xl glass-panel p-4 transition-all duration-300 hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-2">
+                    <div class="relative aspect-square w-full overflow-hidden rounded-2xl bg-black/30 mb-4 flex items-center justify-center border border-white/5">
+                        <button class="absolute top-3 right-3 p-2 rounded-full bg-black/30 backdrop-blur-md text-white opacity-0 group-hover:opacity-100 transition-opacity hover:bg-black/50 border border-white/10">
+                            <span class="material-symbols-outlined text-[20px]">favorite</span>
+                        </button>
+                        <img alt="AirPods Pro Case" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Close up of open AirPods Pro charging case" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDYHFgBQlWl1TtKfGDuP3IQNmp3AbpMZW6AArREz0a-JW8MvJ9m9U1RydKC2xui7WrleXsyYgqUlKjJgudOFOUffI19877OKRuG3JQFeK6yaEIOA56B5mcAuAL_HIRzk2CA746XXqS3Gn-J1UIrVcml5DHYQt5DfU6bCQjy0uOIiGe_CNONBVhcauk_zhwPqz0sCNg2iWnybdcPtTPhOeQz8HkvwYVa7Rski3KFwX7JK47W1O4sd-tySQy5MlteE3C_cp_VT9EdgxU"/>
+                    </div>
+                    <div class="flex flex-col gap-1 mb-2 px-1">
+                        <h3 class="text-white text-lg font-bold truncate group-hover:text-primary transition-colors">AirPods Pro (2nd Gen)</h3>
+                        <p class="text-text-muted text-sm">MagSafe Charging Case</p>
+                    </div>
+                    <div class="mt-auto flex items-end justify-between px-1 pb-1">
+                        <div class="flex flex-col">
+                            <span class="text-xs text-text-muted line-through">$249</span>
+                            <span class="text-xl font-bold text-white">$199</span>
+                        </div>
+                        <button class="flex items-center justify-center size-10 rounded-full bg-white text-black shadow-lg hover:bg-primary hover:scale-110 transition-all duration-300">
+                            <span class="material-symbols-outlined text-[20px] font-bold">add</span>
+                        </button>
+                    </div>
+                </div>
+                <!-- Product Card 5 -->
+                <div class="group relative flex flex-col rounded-3xl glass-panel p-4 transition-all duration-300 hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-2">
+                    <div class="relative aspect-square w-full overflow-hidden rounded-2xl bg-black/30 mb-4 flex items-center justify-center border border-white/5">
+                        <button class="absolute top-3 right-3 p-2 rounded-full bg-black/30 backdrop-blur-md text-white opacity-0 group-hover:opacity-100 transition-opacity hover:bg-black/50 border border-white/10">
+                            <span class="material-symbols-outlined text-[20px]">favorite</span>
+                        </button>
+                        <img alt="Apple Watch Ultra" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Apple Watch Ultra with orange alpine loop band" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDAn46VuMLhg_QehIH6Xj9sJho_pjBgaEkBNoGyxK5jzdUVge_kf0iM_OMvN3wHQX0XysBSrQWZz2w8npggY21cvck0I2j-nQ6M3AuLmrT3Zg22aPeIvgh5vQEEK_UXh1o7lUL6rJ4HgmFqnumwOD2ibyvCrmReSk9y4bQ2GeTO9KdKxH7LptuImAn9EiD6Vkstf0aivzodG1wWAt2cn_P6luGFOYsjKg2m-a3wrl10I2Hd1F3g27tx03oymjx1jqA_uQCWrH0ABRo"/>
+                    </div>
+                    <div class="flex flex-col gap-1 mb-2 px-1">
+                        <h3 class="text-white text-lg font-bold truncate group-hover:text-primary transition-colors">Apple Watch Ultra</h3>
+                        <p class="text-text-muted text-sm">Titanium - Alpine Loop</p>
+                    </div>
+                    <div class="mt-auto flex items-end justify-between px-1 pb-1">
+                        <div class="flex flex-col">
+                            <span class="text-xs text-text-muted line-through">$799</span>
+                            <span class="text-xl font-bold text-white">$689</span>
+                        </div>
+                        <button class="flex items-center justify-center size-10 rounded-full bg-white text-black shadow-lg hover:bg-primary hover:scale-110 transition-all duration-300">
+                            <span class="material-symbols-outlined text-[20px] font-bold">add</span>
+                        </button>
+                    </div>
+                </div>
+                <!-- Product Card 6 -->
+                <div class="group relative flex flex-col rounded-3xl glass-panel p-4 transition-all duration-300 hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-2">
+                    <div class="relative aspect-square w-full overflow-hidden rounded-2xl bg-black/30 mb-4 flex items-center justify-center border border-white/5">
+                        <span class="absolute top-3 left-3 bg-red-500/90 backdrop-blur text-white text-[10px] font-bold uppercase px-3 py-1.5 rounded-full z-10 tracking-wide shadow-lg border border-red-400/20">
+                            Low Stock
+                        </span>
+                        <button class="absolute top-3 right-3 p-2 rounded-full bg-black/30 backdrop-blur-md text-white opacity-0 group-hover:opacity-100 transition-opacity hover:bg-black/50 border border-white/10">
+                            <span class="material-symbols-outlined text-[20px]">favorite</span>
+                        </button>
+                        <img alt="iPhone 13 Mini" class="h-full w-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="Pink iPhone 13 mini with dual camera system" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBUowKn-N5UGzasY8itobc3ZrPkj0OkZKqoVloNvOOUd3g_rgNp0bo9nNNkU-F2PAFM8_6ou2aNuTVRvmS3TqJnn6ZPCpHSmElksGCqNzesFazfRaFXQ_OA71-Pe7m9w3ruFEG3mgy6v5ifOeq1UAzEJ1MX5c1EmOmn-kP_LsBfEyveAcpFwhfCaaFDIL1qmoPCAg4uPFIgGOQToGjM1LGtkrrxengA6bfwQjKxSBFyLNYwWJ84j9CZibHeLSLwAWtCfGIrs3m4NJY"/>
+                    </div>
+                    <div class="flex flex-col gap-1 mb-2 px-1">
+                        <h3 class="text-white text-lg font-bold truncate group-hover:text-primary transition-colors">iPhone 13 mini</h3>
+                        <p class="text-text-muted text-sm">128GB - Pink</p>
+                    </div>
+                    <div class="mt-auto flex items-end justify-between px-1 pb-1">
+                        <div class="flex flex-col">
+                            <span class="text-xs text-text-muted line-through">$599</span>
+                            <span class="text-xl font-bold text-white">$429</span>
+                        </div>
+                        <button class="flex items-center justify-center size-10 rounded-full bg-white text-black shadow-lg hover:bg-primary hover:scale-110 transition-all duration-300">
+                            <span class="material-symbols-outlined text-[20px] font-bold">add</span>
+                        </button>
+                    </div>
+                </div>
+            </div>
+            <!-- Pagination -->
+            <div class="flex justify-center mt-12 mb-8">
+                <div class="flex items-center gap-2 glass-panel p-2 rounded-full">
+                    <button class="flex items-center justify-center size-10 rounded-full bg-white/5 hover:bg-white/10 text-white transition-colors border border-white/5 disabled:opacity-50">
+                        <span class="material-symbols-outlined text-[20px]">chevron_left</span>
+                    </button>
+                    <button class="flex items-center justify-center size-10 rounded-full bg-white text-black font-bold shadow-lg">1</button>
+                    <button class="flex items-center justify-center size-10 rounded-full bg-transparent hover:bg-white/10 text-white transition-colors font-medium">2</button>
+                    <button class="flex items-center justify-center size-10 rounded-full bg-transparent hover:bg-white/10 text-white transition-colors font-medium">3</button>
+                    <span class="text-text-muted px-2">...</span>
+                    <button class="flex items-center justify-center size-10 rounded-full bg-white/5 hover:bg-white/10 text-white transition-colors border border-white/5">
+                        <span class="material-symbols-outlined text-[20px]">chevron_right</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+</main>
+<!-- Footer -->
+<footer class="border-t border-white/5 bg-black/40 backdrop-blur-xl pt-16 pb-8 relative z-20">
+    <div class="px-4 lg:px-40 flex flex-col gap-12 max-w-[1440px] mx-auto">
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+            <div class="flex flex-col gap-4">
+                <h4 class="text-white font-bold text-sm uppercase tracking-wider">Shop</h4>
+                <a class="text-text-muted text-sm hover:text-primary transition-colors" href="#">iPhones</a>
+                <a class="text-text-muted text-sm hover:text-primary transition-colors" href="#">MacBooks</a>
+                <a class="text-text-muted text-sm hover:text-primary transition-colors" href="#">iPads</a>
+                <a class="text-text-muted text-sm hover:text-primary transition-colors" href="#">Apple Watch</a>
+            </div>
+            <div class="flex flex-col gap-4">
+                <h4 class="text-white font-bold text-sm uppercase tracking-wider">Services</h4>
+                <a class="text-text-muted text-sm hover:text-primary transition-colors" href="#">Screen Repair</a>
+                <a class="text-text-muted text-sm hover:text-primary transition-colors" href="#">Battery Replacement</a>
+                <a class="text-text-muted text-sm hover:text-primary transition-colors" href="#">Trade In</a>
+                <a class="text-text-muted text-sm hover:text-primary transition-colors" href="#">Data Recovery</a>
+            </div>
+            <div class="flex flex-col gap-4">
+                <h4 class="text-white font-bold text-sm uppercase tracking-wider">Support</h4>
+                <a class="text-text-muted text-sm hover:text-primary transition-colors" href="#">Contact Us</a>
+                <a class="text-text-muted text-sm hover:text-primary transition-colors" href="#">Warranty Info</a>
+                <a class="text-text-muted text-sm hover:text-primary transition-colors" href="#">Shipping & Returns</a>
+                <a class="text-text-muted text-sm hover:text-primary transition-colors" href="#">FAQs</a>
+            </div>
+            <div class="flex flex-col gap-4">
+                <h4 class="text-white font-bold text-sm uppercase tracking-wider">About EO</h4>
+                <p class="text-text-muted text-sm leading-relaxed">
+                    We are a specialized Apple service provider dedicated to bringing you the best certified pre-owned devices and top-tier repair services.
+                </p>
+            </div>
+        </div>
+        <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+            <p class="text-text-muted text-xs">© 2024 EO Store. All rights reserved.</p>
+            <div class="flex gap-6">
+                <a class="text-text-muted text-xs hover:text-white transition-colors" href="#">Privacy Policy</a>
+                <a class="text-text-muted text-xs hover:text-white transition-colors" href="#">Terms of Service</a>
+            </div>
+        </div>
+    </div>
+</footer>
+</body>
+</html>
