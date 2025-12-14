@@ -4,12 +4,24 @@
     <meta charset="utf-8"/>
     <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
     <title>EO Apple Store - Premium Repairs & Devices</title>
+    <!-- SEO Meta Tags -->
+    <meta name="description" content="EO Store: Premium Apple device repairs & certified pre-owned iPhones, MacBooks, iPads. Same-day repairs, 90-day warranty, eco-friendly refurbishment.">
+    <meta name="keywords" content="Apple repair, iPhone repair, MacBook repair, refurbished Apple devices, certified pre-owned, tech repair">
+    <meta property="og:title" content="EO Apple Store - Premium Repairs & Devices">
+    <meta property="og:description" content="Repair. Refurbish. Revive. Your destination for certified Apple devices and expert repairs.">
+    <meta property="og:image" content="https://images.unsplash.com/photo-1616348436168-de43ad0db179">
+    <meta property="og:url" content="https://eostore.com">
+    <meta name="twitter:card" content="summary_large_image">
+    
     <!-- Google Fonts -->
     <link href="https://fonts.googleapis.com" rel="preconnect"/>
     <link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
     <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;700;800&display=swap" rel="stylesheet"/>
     <!-- Material Symbols -->
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <!-- Font Awesome for social icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
     <!-- Tailwind CSS -->
     <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
     <!-- Tailwind Config -->
@@ -20,6 +32,8 @@
                 extend: {
                     colors: {
                         "primary": "#FADADD",
+                        "secondary": "#8B5CF6",
+                        "accent": "#10B981",
                         "background-dark": "rgba(10, 10, 12, 0.4)", 
                         "card-dark": "rgba(20, 20, 25, 0.4)", 
                         "border-dark": "rgba(255, 255, 255, 0.15)",
@@ -32,6 +46,10 @@
                         'blob': 'blob 20s infinite alternate cubic-bezier(0.4, 0, 0.2, 1)',
                         'blob-reverse': 'blob-reverse 25s infinite alternate cubic-bezier(0.4, 0, 0.2, 1)',
                         'blob-slow': 'blob 30s infinite alternate-reverse cubic-bezier(0.4, 0, 0.2, 1)',
+                        'float': 'float 6s ease-in-out infinite',
+                        'pulse-glow': 'pulse-glow 2s ease-in-out infinite',
+                        'slide-up': 'slide-up 0.5s ease-out',
+                        'fade-in': 'fade-in 0.8s ease-out'
                     },
                     keyframes: {
                         blob: {
@@ -44,7 +62,27 @@
                             '0%': { transform: 'translate(0px, 0px) scale(1) rotate(0deg)' },
                             '50%': { transform: 'translate(-80px, 40px) scale(1.3) rotate(-60deg)' },
                             '100%': { transform: 'translate(40px, -60px) scale(0.9) rotate(-120deg)' },
+                        },
+                        float: {
+                            '0%, 100%': { transform: 'translateY(0px)' },
+                            '50%': { transform: 'translateY(-20px)' }
+                        },
+                        'pulse-glow': {
+                            '0%, 100%': { opacity: 1 },
+                            '50%': { opacity: 0.7 }
+                        },
+                        'slide-up': {
+                            '0%': { transform: 'translateY(20px)', opacity: 0 },
+                            '100%': { transform: 'translateY(0)', opacity: 1 }
+                        },
+                        'fade-in': {
+                            '0%': { opacity: 0 },
+                            '100%': { opacity: 1 }
                         }
+                    },
+                    backgroundImage: {
+                        'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
+                        'gradient-grid': 'linear-gradient(to right, rgba(255,255,255,0.03) 1px, transparent 1px), linear-gradient(to bottom, rgba(255,255,255,0.03) 1px, transparent 1px)'
                     }
                 },
             },
@@ -52,15 +90,23 @@
     </script>
     <style>
         /* Custom scrollbar */
-        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar { width: 10px; }
         ::-webkit-scrollbar-track { background: #050507; }
-        ::-webkit-scrollbar-thumb { background: #444; border-radius: 4px; border: 2px solid #050507; }
-        ::-webkit-scrollbar-thumb:hover { background: #FADADD; }
+        ::-webkit-scrollbar-thumb { 
+            background: linear-gradient(to bottom, #FADADD, #8B5CF6);
+            border-radius: 5px;
+            border: 2px solid #050507;
+        }
+        ::-webkit-scrollbar-thumb:hover { background: linear-gradient(to bottom, #ffc2c9, #9f7aea); }
         
         body {
             background-color: #000000;
             min-height: 100vh;
-            background-image: radial-gradient(circle at center, #111115 0%, #000000 100%);
+            background-image: 
+                radial-gradient(circle at 20% 30%, rgba(120, 119, 198, 0.15) 0%, transparent 50%),
+                radial-gradient(circle at 80% 70%, rgba(250, 218, 221, 0.1) 0%, transparent 50%),
+                radial-gradient(circle at center, #111115 0%, #000000 100%);
+            background-attachment: fixed;
         }
 
         /* Enhanced Liquid Glass Effect */
@@ -79,6 +125,8 @@
         .glass-panel:hover {
             border-color: rgba(255, 255, 255, 0.25);
             background: rgba(60, 60, 70, 0.35); 
+            transform: translateY(-5px);
+            transition: all 0.3s ease;
         }
 
         .animation-delay-2000 { animation-delay: 2s; }
@@ -91,8 +139,120 @@
             -webkit-background-clip: text;
             -webkit-text-fill-color: transparent;
         }
+        
+        /* Gradient background */
+        .gradient-bg {
+            background: linear-gradient(135deg, rgba(250, 218, 221, 0.1) 0%, rgba(139, 92, 246, 0.1) 100%);
+        }
+        
+        /* Custom grid background */
+        .grid-bg {
+            background-size: 50px 50px;
+            background-image: 
+                linear-gradient(to right, rgba(255, 255, 255, 0.03) 1px, transparent 1px),
+                linear-gradient(to bottom, rgba(255, 255, 255, 0.03) 1px, transparent 1px);
+        }
+        
+        /* Shine effect on cards */
+        .shine-effect {
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .shine-effect::after {
+            content: '';
+            position: absolute;
+            top: -50%;
+            left: -50%;
+            width: 200%;
+            height: 200%;
+            background: linear-gradient(
+                to bottom right,
+                rgba(255, 255, 255, 0) 0%,
+                rgba(255, 255, 255, 0.1) 50%,
+                rgba(255, 255, 255, 0) 100%
+            );
+            transform: rotate(30deg);
+            transition: transform 0.6s;
+        }
+        
+        .shine-effect:hover::after {
+            transform: rotate(30deg) translate(20%, 20%);
+        }
+        
+        /* Accessibility improvements */
+        .focus-visible {
+            outline: 2px solid #FADADD;
+            outline-offset: 2px;
+        }
+        
+        /* Loading animation */
+        .loading-pulse {
+            animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.5; }
+        }
+        
+        /* Notification badge */
+        .notification-badge {
+            position: absolute;
+            top: -5px;
+            right: -5px;
+            background: #EF4444;
+            color: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 12px;
+            font-weight: bold;
+        }
+        
+        /* Floating animation */
+        .floating {
+            animation: float 6s ease-in-out infinite;
+        }
     </style>
     <script>
+        // Cart functionality
+        let cart = JSON.parse(localStorage.getItem('cart')) || [];
+        let cartNotificationCount = 0;
+        
+        function updateCartCount() {
+            const totalItems = cart.reduce((sum, item) => sum + item.quantity, 0);
+            const cartBadges = document.querySelectorAll('.cart-badge');
+            cartBadges.forEach(badge => {
+                if (totalItems > 0) {
+                    badge.textContent = totalItems;
+                    badge.classList.remove('hidden');
+                } else {
+                    badge.classList.add('hidden');
+                }
+            });
+        }
+        
+        function showNotification(message, type = 'success') {
+            const notification = document.createElement('div');
+            notification.className = `fixed top-4 right-4 z-50 px-6 py-3 rounded-xl shadow-2xl backdrop-blur-md animate-in slide-in-from-top fade-in ${type === 'success' ? 'bg-green-500/90 border border-green-400' : 'bg-red-500/90 border border-red-400'}`;
+            notification.innerHTML = `
+                <div class="flex items-center gap-3">
+                    <span class="material-symbols-outlined">${type === 'success' ? 'check_circle' : 'error'}</span>
+                    <span class="font-medium">${message}</span>
+                </div>
+            `;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.classList.add('animate-out', 'fade-out', 'slide-out-to-top');
+                setTimeout(() => notification.remove(), 500);
+            }, 3000);
+        }
+        
         function toggleMobileMenu() {
             const menu = document.getElementById('mobile-menu');
             const icon = document.getElementById('menu-icon');
@@ -104,78 +264,174 @@
                 icon.innerText = 'close';
             }
         }
+        
+        function searchProducts(query) {
+            if (query.length < 2) return;
+            window.location.href = `shop.html?search=${encodeURIComponent(query)}`;
+        }
+        
+        // Initialize on page load
+        document.addEventListener('DOMContentLoaded', function() {
+            updateCartCount();
+            
+            // Add search functionality
+            const searchInputs = document.querySelectorAll('input[placeholder*="Search"]');
+            searchInputs.forEach(input => {
+                input.addEventListener('keypress', function(e) {
+                    if (e.key === 'Enter' && this.value.trim()) {
+                        searchProducts(this.value.trim());
+                    }
+                });
+            });
+            
+            // Add scroll animations
+            const observerOptions = {
+                threshold: 0.1,
+                rootMargin: '0px 0px -50px 0px'
+            };
+            
+            const observer = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (entry.isIntersecting) {
+                        entry.target.classList.add('animate-in', 'fade-in', 'slide-up');
+                    }
+                });
+            }, observerOptions);
+            
+            // Observe elements for animation
+            document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+            
+            // Newsletter form
+            const newsletterForm = document.getElementById('newsletter-form');
+            if (newsletterForm) {
+                newsletterForm.addEventListener('submit', function(e) {
+                    e.preventDefault();
+                    const email = this.querySelector('input[type="email"]').value;
+                    
+                    // Simulate subscription
+                    this.querySelector('button').innerHTML = '<span class="material-symbols-outlined animate-spin">refresh</span>';
+                    
+                    setTimeout(() => {
+                        showNotification('Successfully subscribed to newsletter!', 'success');
+                        this.reset();
+                        this.querySelector('button').innerHTML = 'Subscribe';
+                    }, 1000);
+                });
+            }
+        });
     </script>
 </head>
 <body class="font-display text-white selection:bg-primary selection:text-black overflow-x-hidden">
 
 <!-- Enhanced Fluid Background Animation -->
-<div class="fixed inset-0 overflow-hidden pointer-events-none -z-10">
+<div class="fixed inset-0 overflow-hidden pointer-events-none -z-10 grid-bg">
     <div class="absolute top-[10%] left-[20%] w-[500px] h-[500px] bg-primary/20 rounded-full mix-blend-screen filter blur-[100px] opacity-40 animate-blob"></div>
     <div class="absolute top-[5%] right-[10%] w-[450px] h-[450px] bg-indigo-600/25 rounded-full mix-blend-screen filter blur-[100px] opacity-40 animate-blob-reverse animation-delay-2000"></div>
     <div class="absolute bottom-[10%] left-[10%] w-[600px] h-[600px] bg-rose-400/10 rounded-full mix-blend-screen filter blur-[120px] opacity-30 animate-blob-slow animation-delay-4000"></div>
     <div class="absolute bottom-[20%] right-[20%] w-[400px] h-[400px] bg-purple-500/15 rounded-full mix-blend-screen filter blur-[90px] opacity-30 animate-blob animation-delay-6000"></div>
+    
+    <!-- Animated grid lines -->
+    <div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-black/80"></div>
 </div>
 
 <!-- Top Navigation with Mobile Toggle -->
-<header class="sticky top-0 z-50 w-full glass-panel border-b-0 rounded-b-2xl lg:rounded-none lg:border-b lg:border-white/10 mx-4 lg:mx-0 mt-2 lg:mt-0 max-w-[calc(100%-2rem)] lg:max-w-full">
-    <div class="px-4 lg:px-40 py-3 flex flex-col">
+<header class="sticky top-0 z-50 w-full glass-panel border-b-0 rounded-b-2xl lg:rounded-none lg:border-b lg:border-white/10 mx-0 lg:mx-0 mt-0 lg:mt-0 max-w-full">
+    <div class="px-4 lg:px-6 xl:px-8 2xl:px-40 py-3">
         <div class="flex items-center justify-between gap-4">
-            <div class="flex items-center gap-8 shrink-0">
+            <div class="flex items-center gap-4 lg:gap-8 shrink-0">
                 <!-- Logo -->
-                <a class="flex items-center gap-3 text-white hover:opacity-90 transition-opacity" href="#">
-                    <div class="size-6 text-primary">
+                <a class="flex items-center gap-3 text-white hover:opacity-90 transition-opacity group" href="index.html">
+                    <div class="size-8 text-primary group-hover:scale-110 transition-transform">
                         <svg fill="currentColor" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
                             <path d="M4 4H17.3334V17.3334H30.6666V30.6666H44V44H4V4Z"></path>
                         </svg>
                     </div>
-                    <h2 class="text-xl font-bold tracking-tight hidden sm:block">EO Store</h2>
-                    <h2 class="text-xl font-bold tracking-tight sm:hidden">EO</h2>
+                    <div class="flex flex-col">
+                        <h2 class="text-xl font-bold tracking-tight hidden sm:block">EO Store</h2>
+                        <h2 class="text-xl font-bold tracking-tight sm:hidden">EO</h2>
+                        <span class="text-xs text-text-muted hidden lg:block">Premium Apple Services</span>
+                    </div>
                 </a>
                 <!-- Desktop Nav Links -->
-                <nav class="hidden md:flex items-center gap-8">
-                    <a class="text-white text-sm font-medium hover:text-primary transition-colors" href="shop.html">Shop</a>
-                    <a class="text-text-muted text-sm font-medium hover:text-white transition-colors" href="repairs.html">Repairs</a>
-                    <a class="text-text-muted text-sm font-medium hover:text-white transition-colors" href="about.html">About</a>
-                    <a class="text-text-muted text-sm font-medium hover:text-white transition-colors" href="contact.html">Support</a>
+                <nav class="hidden lg:flex items-center gap-4 xl:gap-6">
+                    <a class="text-white text-sm font-medium hover:text-primary transition-colors flex items-center gap-1 group" href="shop.html">
+                        <span class="material-symbols-outlined text-[18px] opacity-70 group-hover:opacity-100">shopping_bag</span>
+                        <span class="hidden xl:inline">Shop</span>
+                    </a>
+                    <a class="text-text-muted text-sm font-medium hover:text-white transition-colors flex items-center gap-1 group" href="repairs.html">
+                        <span class="material-symbols-outlined text-[18px] opacity-70 group-hover:opacity-100">build</span>
+                        <span class="hidden xl:inline">Repairs</span>
+                    </a>
+                    <a class="text-text-muted text-sm font-medium hover:text-white transition-colors flex items-center gap-1 group" href="about.html">
+                        <span class="material-symbols-outlined text-[18px] opacity-70 group-hover:opacity-100">info</span>
+                        <span class="hidden xl:inline">About</span>
+                    </a>
+                    <a class="text-text-muted text-sm font-medium hover:text-white transition-colors flex items-center gap-1 group" href="contact.html">
+                        <span class="material-symbols-outlined text-[18px] opacity-70 group-hover:opacity-100">support_agent</span>
+                        <span class="hidden xl:inline">Support</span>
+                    </a>
+                    <a class="text-text-muted text-sm font-medium hover:text-white transition-colors flex items-center gap-1 group" href="#testimonials">
+                        <span class="material-symbols-outlined text-[18px] opacity-70 group-hover:opacity-100">star</span>
+                        <span class="hidden xl:inline">Reviews</span>
+                    </a>
                 </nav>
             </div>
             <!-- Actions -->
-            <div class="flex items-center gap-2 lg:gap-4 flex-1 justify-end">
-                <div class="hidden lg:flex w-64 items-center rounded-full bg-black/20 border border-white/5 focus-within:border-primary/50 transition-colors h-10 px-3 hover:bg-black/30">
-                    <span class="material-symbols-outlined text-text-muted text-[20px]">search</span>
-                    <input class="w-full bg-transparent border-none text-sm text-white placeholder:text-text-muted focus:ring-0" placeholder="Search products..."/>
+            <div class="flex items-center gap-2 lg:gap-3 xl:gap-4 flex-1 justify-end">
+                <div class="hidden lg:flex w-48 xl:w-64 items-center rounded-full bg-black/20 border border-white/5 focus-within:border-primary/50 transition-colors h-10 px-3 hover:bg-black/30 group">
+                    <span class="material-symbols-outlined text-text-muted text-[18px] group-focus-within:text-primary">search</span>
+                    <input class="w-full bg-transparent border-none text-sm text-white placeholder:text-text-muted focus:ring-0 pl-2" 
+                           placeholder="Search..." 
+                           onkeypress="if(event.key === 'Enter') searchProducts(this.value)"/>
                 </div>
                 
-                <!-- Account and Cart Icons (Now visible on mobile outside menu) -->
-                <button class="flex items-center justify-center size-10 rounded-full bg-white/5 hover:bg-white/15 text-white transition-colors border border-white/5">
-                    <span class="material-symbols-outlined text-[20px]">person</span>
+                <!-- Quick Actions - Hidden on smaller screens -->
+                <div class="hidden xl:flex items-center gap-2">
+                    <a href="repairs.html" class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-primary/10 border border-primary/20 text-primary text-xs font-bold hover:bg-primary/20 transition-colors">
+                        <span class="material-symbols-outlined text-[16px]">schedule</span>
+                        Book Repair
+                    </a>
+                    <a href="shop.html?filter=deal" class="flex items-center gap-2 px-3 py-1.5 rounded-full bg-accent/10 border border-accent/20 text-accent text-xs font-bold hover:bg-accent/20 transition-colors">
+                        <span class="material-symbols-outlined text-[16px]">local_offer</span>
+                        Today's Deals
+                    </a>
+                </div>
+                
+                <!-- Account and Cart Icons -->
+                <button onclick="window.location.href='account.html'" class="flex items-center justify-center size-9 lg:size-10 rounded-full bg-white/5 hover:bg-white/15 text-white transition-colors border border-white/5 group relative">
+                    <span class="material-symbols-outlined text-[18px] lg:text-[20px]">person</span>
+                    <span class="absolute -bottom-1 -right-1 size-2 bg-green-500 rounded-full border border-black hidden group-hover:block"></span>
                 </button>
-                <button class="flex items-center justify-center size-10 rounded-full bg-white/5 hover:bg-white/15 text-white transition-colors relative border border-white/5">
-                    <span class="material-symbols-outlined text-[20px]">shopping_cart</span>
-                    <span class="absolute top-2 right-2 size-2 bg-primary rounded-full box-content border border-black"></span>
-                </button>
+                <a href="cart.html" class="flex items-center justify-center size-9 lg:size-10 rounded-full bg-white/5 hover:bg-white/15 text-white transition-colors relative border border-white/5">
+                    <span class="material-symbols-outlined text-[18px] lg:text-[20px]">shopping_cart</span>
+                    <span class="cart-badge absolute top-1.5 right-1.5 size-2 bg-primary rounded-full box-content border border-black hidden"></span>
+                </a>
 
                 <!-- Mobile Hamburger Toggle -->
-                <button onclick="toggleMobileMenu()" class="md:hidden flex items-center justify-center size-10 rounded-full bg-white/5 hover:bg-white/15 text-white transition-colors border border-white/5 ml-2">
-                    <span id="menu-icon" class="material-symbols-outlined text-[24px]">menu</span>
+                <button onclick="toggleMobileMenu()" class="lg:hidden flex items-center justify-center size-9 lg:size-10 rounded-full bg-white/5 hover:bg-white/15 text-white transition-colors border border-white/5 ml-1">
+                    <span id="menu-icon" class="material-symbols-outlined text-[22px] lg:text-[24px]">menu</span>
                 </button>
             </div>
         </div>
         
         <!-- Mobile Menu (Hidden by default) -->
-        <div id="mobile-menu" class="hidden md:hidden pt-4 pb-2 border-t border-white/10 mt-3 animate-in fade-in slide-in-from-top-2 duration-200">
+        <div id="mobile-menu" class="hidden lg:hidden pt-4 pb-2 border-t border-white/10 mt-3 animate-in fade-in slide-in-from-top-2 duration-200">
             <!-- Mobile Search Bar -->
-            <div class="flex lg:hidden w-full items-center rounded-xl bg-black/20 border border-white/5 focus-within:border-primary/50 transition-colors h-12 px-4 mb-4">
+            <div class="flex w-full items-center rounded-xl bg-black/20 border border-white/5 focus-within:border-primary/50 transition-colors h-12 px-4 mb-4">
                 <span class="material-symbols-outlined text-text-muted">search</span>
-                <input class="w-full bg-transparent border-none text-base text-white placeholder:text-text-muted focus:ring-0 ml-2" placeholder="Search..."/>
+                <input class="w-full bg-transparent border-none text-base text-white placeholder:text-text-muted focus:ring-0 ml-2" 
+                       placeholder="Search..." 
+                       onkeypress="if(event.key === 'Enter') searchProducts(this.value)"/>
             </div>
             
             <nav class="flex flex-col gap-2">
                 <a class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/5 text-white text-base font-medium transition-colors" href="shop.html">
                     <span class="material-symbols-outlined text-primary">shopping_bag</span> Shop
+                    <span class="ml-auto text-xs bg-primary/20 text-primary px-2 py-1 rounded-full">New</span>
                 </a>
                 <a class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/5 text-white text-base font-medium transition-colors" href="repairs.html">
                     <span class="material-symbols-outlined text-primary">build</span> Repairs
+                    <span class="ml-auto text-xs bg-red-500/20 text-red-400 px-2 py-1 rounded-full">Fast</span>
                 </a>
                 <a class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/5 text-white text-base font-medium transition-colors" href="about.html">
                     <span class="material-symbols-outlined text-primary">info</span> About
@@ -183,50 +439,84 @@
                 <a class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/5 text-white text-base font-medium transition-colors" href="contact.html">
                     <span class="material-symbols-outlined text-primary">support_agent</span> Support
                 </a>
+                <a class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/5 text-white text-base font-medium transition-colors" href="#testimonials">
+                    <span class="material-symbols-outlined text-primary">star</span> Reviews
+                </a>
+                <a class="flex items-center gap-3 px-4 py-3 rounded-xl hover:bg-white/5 text-white text-base font-medium transition-colors" href="account.html">
+                    <span class="material-symbols-outlined text-primary">person</span> My Account
+                </a>
             </nav>
+            
+            <div class="mt-4 pt-4 border-t border-white/10 flex flex-col gap-2">
+                <a href="repairs.html" class="flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-primary/10 border border-primary/20 text-primary font-medium">
+                    <span class="material-symbols-outlined">schedule</span> Book Repair Now
+                </a>
+                <a href="shop.html?filter=deal" class="flex items-center justify-center gap-2 px-4 py-3 rounded-xl bg-accent/10 border border-accent/20 text-accent font-medium">
+                    <span class="material-symbols-outlined">local_offer</span> View Today's Deals
+                </a>
+            </div>
         </div>
     </div>
 </header>
 
-<main class="flex-1 w-full max-w-[1440px] mx-auto relative z-10 flex flex-col gap-16 lg:gap-24 pb-20">
+<main class="flex-1 w-full max-w-[1440px] mx-auto relative z-10 flex flex-col gap-16 lg:gap-24 pb-20 px-4 lg:px-6 xl:px-8 2xl:px-40">
     
     <!-- Hero Section -->
-    <section class="relative px-4 lg:px-40 pt-12 lg:pt-20">
-        <div class="glass-panel rounded-[2.5rem] p-8 lg:p-16 flex flex-col lg:flex-row items-center gap-12 overflow-hidden relative">
+    <section class="relative px-4 lg:px-40 pt-12 lg:pt-20 animate-on-scroll">
+        <div class="glass-panel rounded-[2.5rem] p-8 lg:p-16 flex flex-col lg:flex-row items-center gap-12 overflow-hidden relative shine-effect">
             <!-- Hero Content -->
             <div class="flex-1 flex flex-col gap-6 relative z-10">
                 <div class="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-primary/10 border border-primary/20 w-fit backdrop-blur-md">
                     <span class="material-symbols-outlined text-primary text-[18px]">verified</span>
                     <span class="text-primary text-xs font-bold uppercase tracking-wider">Premium Apple Services</span>
                 </div>
-                <h1 class="text-5xl lg:text-7xl font-bold leading-[1.1] text-gradient">
-                    Repair.<br>
-                    Refurbish.<br>
-                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary to-rose-300">Revive.</span>
+                <h1 class="text-5xl lg:text-7xl font-bold leading-[1.1]">
+                    <span class="text-gradient">Repair.</span><br>
+                    <span class="text-gradient">Refurbish.</span><br>
+                    <span class="text-transparent bg-clip-text bg-gradient-to-r from-primary via-secondary to-rose-300 animate-pulse-glow">Revive.</span>
                 </h1>
                 <p class="text-lg text-text-muted max-w-lg leading-relaxed">
-                    Your destination for certified pre-owned Apple devices and expert repairs. We bring your tech back to life.
+                    Your destination for certified pre-owned Apple devices and expert repairs. We bring your tech back to life with 90-day warranty on all services.
                 </p>
                 <div class="flex flex-wrap gap-4 pt-4">
-                    <a href="shop.html" class="h-12 px-8 rounded-full bg-white text-black font-bold text-sm flex items-center justify-center hover:bg-primary hover:scale-105 transition-all shadow-[0_0_20px_rgba(255,255,255,0.3)]">
+                    <a href="shop.html" class="h-12 px-8 rounded-full bg-white text-black font-bold text-sm flex items-center justify-center hover:bg-primary hover:scale-105 transition-all shadow-[0_0_20px_rgba(255,255,255,0.3)] group">
                         Shop Devices
+                        <span class="material-symbols-outlined ml-2 group-hover:translate-x-1 transition-transform">arrow_forward</span>
                     </a>
-                    <a href="repairs.html" class="h-12 px-8 rounded-full bg-white/5 border border-white/10 backdrop-blur-md text-white font-bold text-sm flex items-center justify-center hover:bg-white/10 transition-colors">
+                    <a href="repairs.html" class="h-12 px-8 rounded-full bg-white/5 border border-white/10 backdrop-blur-md text-white font-bold text-sm flex items-center justify-center hover:bg-white/10 transition-colors group">
+                        <span class="material-symbols-outlined mr-2">schedule</span>
                         Book Repair
                     </a>
+                </div>
+                
+                <!-- Quick Stats -->
+                <div class="flex flex-wrap gap-6 pt-6">
+                    <div class="flex items-center gap-2">
+                        <div class="size-3 bg-green-500 rounded-full animate-pulse"></div>
+                        <span class="text-sm text-text-muted">Live Support</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <div class="size-3 bg-primary rounded-full"></div>
+                        <span class="text-sm text-text-muted">Same-Day Repair</span>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <div class="size-3 bg-secondary rounded-full"></div>
+                        <span class="text-sm text-text-muted">Free Diagnostics</span>
+                    </div>
                 </div>
             </div>
             <!-- Hero Image/Graphic -->
             <div class="flex-1 w-full relative">
                 <div class="relative aspect-square lg:aspect-[4/3] w-full">
                     <!-- Decorative blurred circle behind image -->
-                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-primary/20 blur-[60px] rounded-full animate-pulse"></div>
+                    <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-3/4 h-3/4 bg-gradient-radial from-primary/20 to-transparent blur-[60px] rounded-full animate-pulse"></div>
                     <img src="https://images.unsplash.com/photo-1616348436168-de43ad0db179?q=80&w=2581&auto=format&fit=crop" 
-                         alt="iPhone Repair" 
-                         class="relative w-full h-full object-cover rounded-2xl shadow-2xl border border-white/10 transform rotate-[-5deg] hover:rotate-0 transition-transform duration-700">
+                         alt="iPhone Repair by EO Store" 
+                         class="relative w-full h-full object-cover rounded-2xl shadow-2xl border border-white/10 transform rotate-[-5deg] hover:rotate-0 transition-transform duration-700"
+                         loading="lazy">
                     
-                    <!-- Floating Badge -->
-                    <div class="absolute -bottom-6 -left-6 glass-panel p-4 rounded-2xl flex items-center gap-3 animate-bounce shadow-xl">
+                    <!-- Floating Badges -->
+                    <div class="absolute -bottom-6 -left-6 glass-panel p-4 rounded-2xl flex items-center gap-3 animate-float shadow-xl">
                         <div class="size-10 rounded-full bg-green-500/20 flex items-center justify-center text-green-400">
                             <span class="material-symbols-outlined">check_circle</span>
                         </div>
@@ -235,157 +525,708 @@
                             <p class="text-text-muted text-xs">Apple Certified</p>
                         </div>
                     </div>
+                    
+                    <div class="absolute -top-6 -right-6 glass-panel p-4 rounded-2xl flex items-center gap-3 animate-float shadow-xl" style="animation-delay: 1s;">
+                        <div class="size-10 rounded-full bg-blue-500/20 flex items-center justify-center text-blue-400">
+                            <span class="material-symbols-outlined">shield</span>
+                        </div>
+                        <div>
+                            <p class="text-white font-bold text-sm">90-Day Warranty</p>
+                            <p class="text-text-muted text-xs">Guaranteed</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Featured Products Section -->
+    <section class="px-4 lg:px-40 animate-on-scroll">
+        <div class="flex flex-col md:flex-row justify-between items-end mb-10 gap-4">
+            <div>
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-2">Featured Products</h2>
+                <p class="text-text-muted">Certified pre-owned devices with warranty</p>
+            </div>
+            <a href="shop.html" class="text-primary text-sm font-bold flex items-center gap-1 hover:gap-2 transition-all group">
+                View All <span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+            </a>
+        </div>
+
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
+            <!-- Featured Product 1 -->
+            <div class="group relative flex flex-col rounded-3xl glass-panel p-5 transition-all duration-300 hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-2">
+                <div class="relative aspect-square w-full overflow-hidden rounded-2xl bg-gradient-to-br from-gray-900 to-black mb-4 border border-white/5">
+                    <span class="absolute top-3 left-3 bg-primary/90 backdrop-blur text-black text-[10px] font-bold uppercase px-3 py-1.5 rounded-full z-10 tracking-wide shadow-lg">
+                        Best Seller
+                    </span>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10"></div>
+                    <img src="https://images.unsplash.com/photo-1695048133142-1a20484d2569?q=80&w=2581&auto=format&fit=crop" 
+                         alt="iPhone 15 Pro Max" 
+                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                         loading="lazy">
+                </div>
+                <div class="flex flex-col gap-1 mb-2">
+                    <h3 class="text-white text-lg font-bold truncate group-hover:text-primary transition-colors">iPhone 15 Pro Max</h3>
+                    <p class="text-text-muted text-sm">256GB • Natural Titanium</p>
+                </div>
+                <div class="mt-auto flex items-end justify-between">
+                    <div class="flex flex-col">
+                        <span class="text-xs text-text-muted line-through">$1,199</span>
+                        <span class="text-xl font-bold text-white">$1,049</span>
+                    </div>
+                    <button class="flex items-center justify-center size-10 rounded-full bg-white text-black shadow-lg hover:bg-primary hover:scale-110 transition-all duration-300 group/add">
+                        <span class="material-symbols-outlined text-[20px] font-bold">add</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Featured Product 2 -->
+            <div class="group relative flex flex-col rounded-3xl glass-panel p-5 transition-all duration-300 hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-2">
+                <div class="relative aspect-square w-full overflow-hidden rounded-2xl bg-gradient-to-br from-gray-900 to-black mb-4 border border-white/5">
+                    <span class="absolute top-3 left-3 bg-accent/90 backdrop-blur text-white text-[10px] font-bold uppercase px-3 py-1.5 rounded-full z-10 tracking-wide shadow-lg">
+                        Eco Choice
+                    </span>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10"></div>
+                    <img src="https://images.unsplash.com/photo-1541807084-5c52b6b3adef?q=80&w=2574&auto=format&fit=crop" 
+                         alt="MacBook Air" 
+                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                         loading="lazy">
+                </div>
+                <div class="flex flex-col gap-1 mb-2">
+                    <h3 class="text-white text-lg font-bold truncate group-hover:text-primary transition-colors">MacBook Air M2</h3>
+                    <p class="text-text-muted text-sm">512GB • Midnight</p>
+                </div>
+                <div class="mt-auto flex items-end justify-between">
+                    <div class="flex flex-col">
+                        <span class="text-xs text-text-muted line-through">$1,299</span>
+                        <span class="text-xl font-bold text-white">$999</span>
+                    </div>
+                    <button class="flex items-center justify-center size-10 rounded-full bg-white text-black shadow-lg hover:bg-primary hover:scale-110 transition-all duration-300">
+                        <span class="material-symbols-outlined text-[20px] font-bold">add</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Featured Product 3 -->
+            <div class="group relative flex flex-col rounded-3xl glass-panel p-5 transition-all duration-300 hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-2">
+                <div class="relative aspect-square w-full overflow-hidden rounded-2xl bg-gradient-to-br from-gray-900 to-black mb-4 border border-white/5">
+                    <span class="absolute top-3 left-3 bg-red-500/90 backdrop-blur text-white text-[10px] font-bold uppercase px-3 py-1.5 rounded-full z-10 tracking-wide shadow-lg">
+                        Limited Stock
+                    </span>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10"></div>
+                    <img src="https://images.unsplash.com/photo-1546868871-7041f2a55e12?q=80&w=2564&auto=format&fit=crop" 
+                         alt="Apple Watch Ultra" 
+                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                         loading="lazy">
+                </div>
+                <div class="flex flex-col gap-1 mb-2">
+                    <h3 class="text-white text-lg font-bold truncate group-hover:text-primary transition-colors">Apple Watch Ultra 2</h3>
+                    <p class="text-text-muted text-sm">49mm • Titanium</p>
+                </div>
+                <div class="mt-auto flex items-end justify-between">
+                    <div class="flex flex-col">
+                        <span class="text-xs text-text-muted line-through">$799</span>
+                        <span class="text-xl font-bold text-white">$689</span>
+                    </div>
+                    <button class="flex items-center justify-center size-10 rounded-full bg-white text-black shadow-lg hover:bg-primary hover:scale-110 transition-all duration-300">
+                        <span class="material-symbols-outlined text-[20px] font-bold">add</span>
+                    </button>
+                </div>
+            </div>
+
+            <!-- Featured Product 4 -->
+            <div class="group relative flex flex-col rounded-3xl glass-panel p-5 transition-all duration-300 hover:border-primary/40 hover:shadow-2xl hover:shadow-primary/10 hover:-translate-y-2">
+                <div class="relative aspect-square w-full overflow-hidden rounded-2xl bg-gradient-to-br from-gray-900 to-black mb-4 border border-white/5">
+                    <span class="absolute top-3 left-3 bg-blue-500/90 backdrop-blur text-white text-[10px] font-bold uppercase px-3 py-1.5 rounded-full z-10 tracking-wide shadow-lg">
+                        New Arrival
+                    </span>
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent z-10"></div>
+                    <img src="https://images.unsplash.com/photo-1544244015-0df4b3ffc6b0?q=80&w=2574&auto=format&fit=crop" 
+                         alt="iPad Pro" 
+                         class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
+                         loading="lazy">
+                </div>
+                <div class="flex flex-col gap-1 mb-2">
+                    <h3 class="text-white text-lg font-bold truncate group-hover:text-primary transition-colors">iPad Pro M2</h3>
+                    <p class="text-text-muted text-sm">12.9" • 1TB • Wi-Fi</p>
+                </div>
+                <div class="mt-auto flex items-end justify-between">
+                    <div class="flex flex-col">
+                        <span class="text-xs text-text-muted line-through">$1,899</span>
+                        <span class="text-xl font-bold text-white">$1,549</span>
+                    </div>
+                    <button class="flex items-center justify-center size-10 rounded-full bg-white text-black shadow-lg hover:bg-primary hover:scale-110 transition-all duration-300">
+                        <span class="material-symbols-outlined text-[20px] font-bold">add</span>
+                    </button>
                 </div>
             </div>
         </div>
     </section>
 
     <!-- Why Choose EO Section -->
-    <section class="px-4 lg:px-40">
+    <section class="px-4 lg:px-40 animate-on-scroll">
         <div class="flex flex-col items-center text-center gap-4 mb-12">
-            <h2 class="text-3xl md:text-4xl font-bold text-white">Why Choose EO?</h2>
-            <p class="text-text-muted max-w-xl">We set the standard for quality in refurbishment and repair services.</p>
+            <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-md">
+                <span class="material-symbols-outlined text-primary">workspace_premium</span>
+                <span class="text-primary text-sm font-bold uppercase tracking-wider">Why Choose EO?</span>
+            </span>
+            <h2 class="text-3xl md:text-4xl font-bold text-white">We Set the Standard</h2>
+            <p class="text-text-muted max-w-xl">Premium quality, sustainable tech, and unparalleled service.</p>
         </div>
         
         <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
             <!-- Feature 1 -->
-            <div class="glass-panel p-6 rounded-3xl flex flex-col gap-4 hover:-translate-y-2 transition-transform duration-300">
-                <div class="size-12 rounded-2xl bg-white/5 flex items-center justify-center text-primary border border-white/10">
+            <div class="glass-panel p-6 rounded-3xl flex flex-col gap-4 hover:-translate-y-2 transition-transform duration-300 group shine-effect">
+                <div class="size-12 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center text-primary border border-primary/10 group-hover:scale-110 transition-transform">
                     <span class="material-symbols-outlined text-[24px]">engineering</span>
                 </div>
                 <div>
                     <h3 class="text-white font-bold text-lg mb-2">Expert Technicians</h3>
-                    <p class="text-text-muted text-sm leading-relaxed">Our team consists of certified professionals with years of experience in Apple hardware diagnostics and repair.</p>
+                    <p class="text-text-muted text-sm leading-relaxed">Certified professionals with 5+ years average experience in Apple hardware diagnostics and repair.</p>
                 </div>
+                <a href="about.html#team" class="text-primary text-sm font-medium flex items-center gap-1 mt-2 group/link">
+                    Meet Our Team
+                    <span class="material-symbols-outlined text-[16px] group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
+                </a>
             </div>
 
             <!-- Feature 2 -->
-            <div class="glass-panel p-6 rounded-3xl flex flex-col gap-4 hover:-translate-y-2 transition-transform duration-300">
-                <div class="size-12 rounded-2xl bg-white/5 flex items-center justify-center text-primary border border-white/10">
+            <div class="glass-panel p-6 rounded-3xl flex flex-col gap-4 hover:-translate-y-2 transition-transform duration-300 group shine-effect">
+                <div class="size-12 rounded-2xl bg-gradient-to-br from-green-500/20 to-green-500/5 flex items-center justify-center text-green-400 border border-green-500/10 group-hover:scale-110 transition-transform">
                     <span class="material-symbols-outlined text-[24px]">verified_user</span>
                 </div>
                 <div>
                     <h3 class="text-white font-bold text-lg mb-2">90-Day Warranty</h3>
-                    <p class="text-text-muted text-sm leading-relaxed">Every device and repair comes with our comprehensive 90-day warranty for your peace of mind.</p>
+                    <p class="text-text-muted text-sm leading-relaxed">Every device and repair comes with our comprehensive warranty for complete peace of mind.</p>
                 </div>
+                <a href="warranty.html" class="text-green-400 text-sm font-medium flex items-center gap-1 mt-2 group/link">
+                    Warranty Details
+                    <span class="material-symbols-outlined text-[16px] group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
+                </a>
             </div>
 
             <!-- Feature 3 -->
-            <div class="glass-panel p-6 rounded-3xl flex flex-col gap-4 hover:-translate-y-2 transition-transform duration-300">
-                <div class="size-12 rounded-2xl bg-white/5 flex items-center justify-center text-primary border border-white/10">
+            <div class="glass-panel p-6 rounded-3xl flex flex-col gap-4 hover:-translate-y-2 transition-transform duration-300 group shine-effect">
+                <div class="size-12 rounded-2xl bg-gradient-to-br from-accent/20 to-accent/5 flex items-center justify-center text-accent border border-accent/10 group-hover:scale-110 transition-transform">
                     <span class="material-symbols-outlined text-[24px]">eco</span>
                 </div>
                 <div>
                     <h3 class="text-white font-bold text-lg mb-2">Eco-Friendly</h3>
-                    <p class="text-text-muted text-sm leading-relaxed">We reduce e-waste by extending the life of premium electronics through expert refurbishment.</p>
+                    <p class="text-text-muted text-sm leading-relaxed">We've diverted 10,000+ devices from landfills through expert refurbishment and recycling.</p>
                 </div>
+                <a href="about.html#sustainability" class="text-accent text-sm font-medium flex items-center gap-1 mt-2 group/link">
+                    Our Impact
+                    <span class="material-symbols-outlined text-[16px] group-hover/link:translate-x-1 transition-transform">arrow_forward</span>
+                </a>
+            </div>
+        </div>
+        
+        <!-- Additional Stats -->
+        <div class="grid grid-cols-2 md:grid-cols-4 gap-6 mt-12">
+            <div class="glass-panel p-6 rounded-3xl flex flex-col items-center text-center gap-2">
+                <h3 class="text-4xl font-bold text-primary">10k+</h3>
+                <p class="text-text-muted text-sm uppercase tracking-wider font-bold">Devices Sold</p>
+            </div>
+            <div class="glass-panel p-6 rounded-3xl flex flex-col items-center text-center gap-2">
+                <h3 class="text-4xl font-bold text-primary">5k+</h3>
+                <p class="text-text-muted text-sm uppercase tracking-wider font-bold">Repairs Done</p>
+            </div>
+            <div class="glass-panel p-6 rounded-3xl flex flex-col items-center text-center gap-2">
+                <h3 class="text-4xl font-bold text-primary">4.9★</h3>
+                <p class="text-text-muted text-sm uppercase tracking-wider font-bold">Avg. Rating</p>
+            </div>
+            <div class="glass-panel p-6 rounded-3xl flex flex-col items-center text-center gap-2">
+                <h3 class="text-4xl font-bold text-primary">24h</h3>
+                <p class="text-text-muted text-sm uppercase tracking-wider font-bold">Avg. Repair Time</p>
             </div>
         </div>
     </section>
 
     <!-- Our Services Section -->
-    <section class="px-4 lg:px-40">
+    <section class="px-4 lg:px-40 animate-on-scroll" id="services">
         <div class="flex flex-col md:flex-row justify-between items-end mb-10 gap-4">
             <div>
                 <h2 class="text-3xl md:text-4xl font-bold text-white mb-2">Our Services</h2>
-                <p class="text-text-muted">Comprehensive solutions for all your Apple devices.</p>
+                <p class="text-text-muted">Comprehensive solutions for all your Apple devices</p>
             </div>
-            <a href="#" class="text-primary text-sm font-bold flex items-center gap-1 hover:gap-2 transition-all">
-                View Pricing <span class="material-symbols-outlined text-[16px]">arrow_forward</span>
+            <a href="repairs.html" class="text-primary text-sm font-bold flex items-center gap-1 hover:gap-2 transition-all group">
+                All Services <span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
             </a>
         </div>
 
-        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6">
-            <div class="glass-panel p-6 rounded-3xl flex flex-col items-center text-center gap-4 hover:bg-white/5 transition-colors group cursor-pointer">
-                <div class="size-16 rounded-full bg-black/40 flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <span class="material-symbols-outlined text-3xl text-white">phonelink_setup</span>
+        <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
+            <!-- Service 1 -->
+            <div class="glass-panel p-6 rounded-3xl flex flex-col items-start gap-4 hover:bg-white/5 transition-colors group cursor-pointer shine-effect">
+                <div class="size-16 rounded-2xl bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <span class="material-symbols-outlined text-3xl text-primary">phonelink_setup</span>
                 </div>
-                <h3 class="text-white font-bold">Screen Repair</h3>
+                <div>
+                    <h3 class="text-white font-bold text-lg mb-2">Screen Repair</h3>
+                    <p class="text-text-muted text-sm leading-relaxed mb-4">Cracked screen? We replace screens with genuine parts in as little as 30 minutes.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-primary font-bold">From $79</span>
+                        <span class="text-xs bg-primary/10 text-primary px-2 py-1 rounded-full">Same-Day</span>
+                    </div>
+                </div>
             </div>
-            <div class="glass-panel p-6 rounded-3xl flex flex-col items-center text-center gap-4 hover:bg-white/5 transition-colors group cursor-pointer">
-                <div class="size-16 rounded-full bg-black/40 flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <span class="material-symbols-outlined text-3xl text-white">battery_charging_full</span>
+            
+            <!-- Service 2 -->
+            <div class="glass-panel p-6 rounded-3xl flex flex-col items-start gap-4 hover:bg-white/5 transition-colors group cursor-pointer shine-effect">
+                <div class="size-16 rounded-2xl bg-gradient-to-br from-green-500/20 to-green-500/5 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <span class="material-symbols-outlined text-3xl text-green-400">battery_charging_full</span>
                 </div>
-                <h3 class="text-white font-bold">Battery Replacement</h3>
+                <div>
+                    <h3 class="text-white font-bold text-lg mb-2">Battery Replacement</h3>
+                    <p class="text-text-muted text-sm leading-relaxed mb-4">Get back to peak performance with new, genuine Apple batteries installed by experts.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-green-400 font-bold">From $69</span>
+                        <span class="text-xs bg-green-500/10 text-green-400 px-2 py-1 rounded-full">1-Hour Service</span>
+                    </div>
+                </div>
             </div>
-            <div class="glass-panel p-6 rounded-3xl flex flex-col items-center text-center gap-4 hover:bg-white/5 transition-colors group cursor-pointer">
-                <div class="size-16 rounded-full bg-black/40 flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <span class="material-symbols-outlined text-3xl text-white">water_drop</span>
+            
+            <!-- Service 3 -->
+            <div class="glass-panel p-6 rounded-3xl flex flex-col items-start gap-4 hover:bg-white/5 transition-colors group cursor-pointer shine-effect">
+                <div class="size-16 rounded-2xl bg-gradient-to-br from-blue-500/20 to-blue-500/5 flex items-center justify-center group-hover:scale-110 transition-transform">
+                    <span class="material-symbols-outlined text-3xl text-blue-400">water_drop</span>
                 </div>
-                <h3 class="text-white font-bold">Water Damage</h3>
+                <div>
+                    <h3 class="text-white font-bold text-lg mb-2">Water Damage</h3>
+                    <p class="text-text-muted text-sm leading-relaxed mb-4">Advanced cleaning and component-level board repair for liquid-damaged devices.</p>
+                    <div class="flex items-center justify-between">
+                        <span class="text-blue-400 font-bold">From $99</span>
+                        <span class="text-xs bg-blue-500/10 text-blue-400 px-2 py-1 rounded-full">Diagnostics Free</span>
+                    </div>
+                </div>
             </div>
-            <div class="glass-panel p-6 rounded-3xl flex flex-col items-center text-center gap-4 hover:bg-white/5 transition-colors group cursor-pointer">
-                <div class="size-16 rounded-full bg-black/40 flex items-center justify-center group-hover:scale-110 transition-transform">
-                    <span class="material-symbols-outlined text-3xl text-white">laptop_mac</span>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="px-4 lg:px-40 animate-on-scroll" id="testimonials">
+        <div class="flex flex-col items-center text-center gap-4 mb-12">
+            <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-primary/10 border border-primary/20 backdrop-blur-md">
+                <span class="material-symbols-outlined text-primary">star</span>
+                <span class="text-primary text-sm font-bold uppercase tracking-wider">Customer Reviews</span>
+            </span>
+            <h2 class="text-3xl md:text-4xl font-bold text-white">Trusted by Thousands</h2>
+            <p class="text-text-muted max-w-xl">See what our customers say about their experience with EO Store.</p>
+        </div>
+
+        <div class="grid grid-cols-1 md:grid-cols-3 gap-6">
+            <!-- Testimonial 1 -->
+            <div class="glass-panel p-6 rounded-3xl flex flex-col gap-4">
+                <div class="flex items-center gap-3">
+                    <div class="size-12 rounded-full bg-gradient-to-br from-primary/20 to-primary/5 flex items-center justify-center">
+                        <span class="text-white font-bold">JS</span>
+                    </div>
+                    <div>
+                        <h4 class="text-white font-bold">Jamie Smith</h4>
+                        <div class="flex items-center gap-1">
+                            <span class="material-symbols-outlined text-yellow-400 text-[16px]">star</span>
+                            <span class="material-symbols-outlined text-yellow-400 text-[16px]">star</span>
+                            <span class="material-symbols-outlined text-yellow-400 text-[16px]">star</span>
+                            <span class="material-symbols-outlined text-yellow-400 text-[16px]">star</span>
+                            <span class="material-symbols-outlined text-yellow-400 text-[16px]">star</span>
+                        </div>
+                    </div>
                 </div>
-                <h3 class="text-white font-bold">MacBook Diagnostics</h3>
+                <p class="text-text-muted text-sm leading-relaxed">
+                    "My iPhone 14 Pro screen repair was done in under an hour! The staff was professional and the quality is indistinguishable from new. Will definitely return for future repairs."
+                </p>
+                <div class="flex items-center gap-2 pt-2">
+                    <span class="text-xs text-primary bg-primary/10 px-2 py-1 rounded-full">Screen Repair</span>
+                    <span class="text-xs text-text-muted ml-auto">2 days ago</span>
+                </div>
+            </div>
+
+            <!-- Testimonial 2 -->
+            <div class="glass-panel p-6 rounded-3xl flex flex-col gap-4">
+                <div class="flex items-center gap-3">
+                    <div class="size-12 rounded-full bg-gradient-to-br from-green-500/20 to-green-500/5 flex items-center justify-center">
+                        <span class="text-white font-bold">MC</span>
+                    </div>
+                    <div>
+                        <h4 class="text-white font-bold">Marcus Chen</h4>
+                        <div class="flex items-center gap-1">
+                            <span class="material-symbols-outlined text-yellow-400 text-[16px]">star</span>
+                            <span class="material-symbols-outlined text-yellow-400 text-[16px]">star</span>
+                            <span class="material-symbols-outlined text-yellow-400 text-[16px]">star</span>
+                            <span class="material-symbols-outlined text-yellow-400 text-[16px]">star</span>
+                            <span class="material-symbols-outlined text-yellow-400 text-[16px]">star</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-text-muted text-sm leading-relaxed">
+                    "Bought a refurbished MacBook Pro M1 and it looks and performs like brand new. Saved $400 compared to new! The 90-day warranty gave me peace of mind."
+                </p>
+                <div class="flex items-center gap-2 pt-2">
+                    <span class="text-xs text-green-400 bg-green-500/10 px-2 py-1 rounded-full">Device Purchase</span>
+                    <span class="text-xs text-text-muted ml-auto">1 week ago</span>
+                </div>
+            </div>
+
+            <!-- Testimonial 3 -->
+            <div class="glass-panel p-6 rounded-3xl flex flex-col gap-4">
+                <div class="flex items-center gap-3">
+                    <div class="size-12 rounded-full bg-gradient-to-br from-blue-500/20 to-blue-500/5 flex items-center justify-center">
+                        <span class="text-white font-bold">SR</span>
+                    </div>
+                    <div>
+                        <h4 class="text-white font-bold">Sophia Rodriguez</h4>
+                        <div class="flex items-center gap-1">
+                            <span class="material-symbols-outlined text-yellow-400 text-[16px]">star</span>
+                            <span class="material-symbols-outlined text-yellow-400 text-[16px]">star</span>
+                            <span class="material-symbols-outlined text-yellow-400 text-[16px]">star</span>
+                            <span class="material-symbols-outlined text-yellow-400 text-[16px]">star</span>
+                            <span class="material-symbols-outlined text-yellow-400 text-[16px]">star</span>
+                        </div>
+                    </div>
+                </div>
+                <p class="text-text-muted text-sm leading-relaxed">
+                    "Water damage recovery service saved my iPad from certain death. The team was transparent about costs and kept me updated throughout the process. Highly recommend!"
+                </p>
+                <div class="flex items-center gap-2 pt-2">
+                    <span class="text-xs text-blue-400 bg-blue-500/10 px-2 py-1 rounded-full">Water Damage</span>
+                    <span class="text-xs text-text-muted ml-auto">2 weeks ago</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="flex justify-center mt-8">
+            <a href="reviews.html" class="text-primary text-sm font-bold flex items-center gap-1 hover:gap-2 transition-all group">
+                Read All 1,200+ Reviews <span class="material-symbols-outlined text-[16px] group-hover:translate-x-1 transition-transform">arrow_forward</span>
+            </a>
+        </div>
+    </section>
+
+    <!-- Newsletter Section -->
+    <section class="px-4 lg:px-40 animate-on-scroll">
+        <div class="glass-panel rounded-[2.5rem] p-8 lg:p-12 text-center relative overflow-hidden gradient-bg">
+            <!-- Background Glow -->
+            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-gradient-radial from-primary/20 to-transparent blur-3xl -z-10"></div>
+            
+            <div class="relative z-10 max-w-2xl mx-auto">
+                <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-white/10 backdrop-blur-md border border-white/20 mb-6">
+                    <span class="material-symbols-outlined text-white">mail</span>
+                    <span class="text-white text-sm font-bold">Stay Updated</span>
+                </span>
+                <h2 class="text-3xl md:text-4xl font-bold text-white mb-4">Join Our Tech Community</h2>
+                <p class="text-text-muted text-lg mb-8">
+                    Get exclusive deals, tech tips, and early access to new refurbished devices.
+                </p>
+                <form id="newsletter-form" class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+                    <input type="email" 
+                           placeholder="Enter your email" 
+                           class="flex-1 h-12 px-4 rounded-xl bg-black/20 border border-white/10 text-white placeholder:text-text-muted focus:ring-2 focus:ring-primary focus:border-transparent"
+                           required>
+                    <button type="submit" class="h-12 px-8 rounded-xl bg-white text-black font-bold hover:scale-105 transition-transform shadow-lg flex items-center justify-center gap-2">
+                        <span class="material-symbols-outlined">send</span>
+                        Subscribe
+                    </button>
+                </form>
+                <p class="text-text-muted text-xs mt-4">By subscribing, you agree to our Privacy Policy. Unsubscribe anytime.</p>
             </div>
         </div>
     </section>
 
     <!-- CTA Section -->
-    <section class="px-4 lg:px-40 pb-20">
-        <div class="glass-panel rounded-[2.5rem] p-8 lg:p-20 text-center relative overflow-hidden">
-            <!-- Background Glow -->
-            <div class="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-gradient-to-r from-primary/10 to-purple-500/10 blur-3xl -z-10"></div>
-            
-            <h2 class="text-3xl md:text-5xl font-bold text-white mb-6">Ready to upgrade?</h2>
-            <p class="text-text-muted text-lg mb-8 max-w-2xl mx-auto">
-                Trade in your old device for credit towards a certified like-new upgrade, or get it repaired by our experts today.
-            </p>
-            <div class="flex flex-col sm:flex-row justify-center gap-4">
-                <button class="h-12 px-8 rounded-full bg-white text-black font-bold text-sm hover:scale-105 transition-transform shadow-lg">
+    <section class="px-4 lg:px-40 pb-20 animate-on-scroll">
+        <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
+            <!-- Trade-In CTA -->
+            <div class="glass-panel rounded-3xl p-8 flex flex-col justify-between gradient-bg relative overflow-hidden group shine-effect">
+                <div class="absolute top-0 right-0 w-32 h-32 bg-primary/10 rounded-full -translate-y-16 translate-x-16"></div>
+                <div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Trade In & Upgrade</h3>
+                    <p class="text-text-muted mb-6">Get credit towards a new device when you trade in your old Apple products.</p>
+                    <ul class="space-y-2 mb-8">
+                        <li class="flex items-center gap-2 text-sm text-white">
+                            <span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+                            Instant valuation
+                        </li>
+                        <li class="flex items-center gap-2 text-sm text-white">
+                            <span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+                            Free shipping label
+                        </li>
+                        <li class="flex items-center gap-2 text-sm text-white">
+                            <span class="material-symbols-outlined text-primary text-[18px]">check_circle</span>
+                            Payment in 24 hours
+                        </li>
+                    </ul>
+                </div>
+                <button class="w-full py-3 rounded-full bg-white text-black font-bold hover:scale-[1.02] transition-transform flex items-center justify-center gap-2 group/btn">
                     Start Trade-In
+                    <span class="material-symbols-outlined group-hover/btn:translate-x-1 transition-transform">arrow_forward</span>
                 </button>
-                <button class="h-12 px-8 rounded-full glass-panel border border-white/20 text-white font-bold text-sm hover:bg-white/10 transition-colors">
-                    Find a Store
-                </button>
+            </div>
+            
+            <!-- Find Store CTA -->
+            <div class="glass-panel rounded-3xl p-8 flex flex-col justify-between gradient-bg relative overflow-hidden group shine-effect">
+                <div class="absolute bottom-0 left-0 w-32 h-32 bg-secondary/10 rounded-full translate-y-16 -translate-x-16"></div>
+                <div>
+                    <h3 class="text-2xl font-bold text-white mb-4">Visit Our Store</h3>
+                    <p class="text-text-muted mb-6">Experience our services in person. Walk-ins welcome for consultations and quick repairs.</p>
+                    <div class="space-y-3 mb-8">
+                        <div class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-primary">location_on</span>
+                            <div>
+                                <p class="text-white font-medium">EO Store HQ</p>
+                                <p class="text-text-muted text-sm">123 Tech Avenue, Silicon Valley, CA</p>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <span class="material-symbols-outlined text-primary">schedule</span>
+                            <div>
+                                <p class="text-white font-medium">Opening Hours</p>
+                                <p class="text-text-muted text-sm">Mon-Sat: 9am-7pm • Sun: 10am-5pm</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <a href="contact.html#map" class="w-full py-3 rounded-full bg-white/10 backdrop-blur-md border border-white/20 text-white font-bold hover:bg-white/20 transition-colors flex items-center justify-center gap-2 group/btn">
+                    <span class="material-symbols-outlined">map</span>
+                    Get Directions
+                </a>
             </div>
         </div>
     </section>
 
 </main>
 
-<!-- Footer (Matched to Shop.html) -->
+<!-- Enhanced Footer -->
 <footer class="border-t border-white/5 bg-black/40 backdrop-blur-xl pt-16 pb-8 relative z-20">
-    <div class="px-4 lg:px-40 flex flex-col gap-12 max-w-[1440px] mx-auto">
-        <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+    <div class="px-4 lg:px-6 xl:px-8 2xl:px-40 flex flex-col gap-12 max-w-[1440px] mx-auto">
+        <div class="grid grid-cols-2 md:grid-cols-2 lg:grid-cols-5 gap-8">
+            <!-- Brand Column -->
+            <div class="col-span-2 lg:col-span-1 flex flex-col gap-4">
+                <a href="index.html" class="flex items-center gap-3 text-white hover:opacity-90 transition-opacity w-fit">
+                    <div class="size-8 text-primary">
+                        <svg fill="currentColor" viewbox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
+                            <path d="M4 4H17.3334V17.3334H30.6666V30.6666H44V44H4V4Z"></path>
+                        </svg>
+                    </div>
+                    <div class="flex flex-col">
+                        <h2 class="text-xl font-bold tracking-tight">EO Store</h2>
+                        <span class="text-xs text-text-muted">Premium Apple Services</span>
+                    </div>
+                </a>
+                <p class="text-text-muted text-sm leading-relaxed">
+                    We extend the life of premium electronics through expert refurbishment and repair, reducing e-waste while providing like-new devices.
+                </p>
+                <div class="flex items-center gap-4 pt-2">
+                    <a href="#" class="text-text-muted hover:text-white transition-colors">
+                        <i class="fab fa-facebook-f"></i>
+                    </a>
+                    <a href="#" class="text-text-muted hover:text-white transition-colors">
+                        <i class="fab fa-twitter"></i>
+                    </a>
+                    <a href="#" class="text-text-muted hover:text-white transition-colors">
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="text-text-muted hover:text-white transition-colors">
+                        <i class="fab fa-linkedin-in"></i>
+                    </a>
+                    <a href="#" class="text-text-muted hover:text-white transition-colors">
+                        <i class="fab fa-youtube"></i>
+                    </a>
+                </div>
+            </div>
+            
+            <!-- Shop Column -->
             <div class="flex flex-col gap-4">
                 <h4 class="text-white font-bold text-sm uppercase tracking-wider">Shop</h4>
-                <a class="text-text-muted text-sm hover:text-primary transition-colors" href="#">iPhones</a>
-                <a class="text-text-muted text-sm hover:text-primary transition-colors" href="#">MacBooks</a>
-                <a class="text-text-muted text-sm hover:text-primary transition-colors" href="#">iPads</a>
-                <a class="text-text-muted text-sm hover:text-primary transition-colors" href="#">Apple Watch</a>
+                <a class="text-text-muted text-sm hover:text-primary transition-colors flex items-center gap-2" href="shop.html?category=iphone">
+                    <span class="material-symbols-outlined text-[16px]">smartphone</span>
+                    iPhones
+                </a>
+                <a class="text-text-muted text-sm hover:text-primary transition-colors flex items-center gap-2" href="shop.html?category=macbook">
+                    <span class="material-symbols-outlined text-[16px]">laptop_mac</span>
+                    MacBooks
+                </a>
+                <a class="text-text-muted text-sm hover:text-primary transition-colors flex items-center gap-2" href="shop.html?category=ipad">
+                    <span class="material-symbols-outlined text-[16px]">tablet_mac</span>
+                    iPads
+                </a>
+                <a class="text-text-muted text-sm hover:text-primary transition-colors flex items-center gap-2" href="shop.html?category=watch">
+                    <span class="material-symbols-outlined text-[16px]">watch</span>
+                    Apple Watch
+                </a>
+                <a class="text-text-muted text-sm hover:text-primary transition-colors flex items-center gap-2" href="shop.html?category=accessories">
+                    <span class="material-symbols-outlined text-[16px]">devices</span>
+                    Accessories
+                </a>
             </div>
+            
+            <!-- Services Column -->
             <div class="flex flex-col gap-4">
                 <h4 class="text-white font-bold text-sm uppercase tracking-wider">Services</h4>
-                <a class="text-text-muted text-sm hover:text-primary transition-colors" href="#">Screen Repair</a>
-                <a class="text-text-muted text-sm hover:text-primary transition-colors" href="#">Battery Replacement</a>
-                <a class="text-text-muted text-sm hover:text-primary transition-colors" href="#">Trade In</a>
-                <a class="text-text-muted text-sm hover:text-primary transition-colors" href="#">Data Recovery</a>
+                <a class="text-text-muted text-sm hover:text-primary transition-colors flex items-center gap-2" href="repairs.html#screen">
+                    <span class="material-symbols-outlined text-[16px]">phonelink_setup</span>
+                    Screen Repair
+                </a>
+                <a class="text-text-muted text-sm hover:text-primary transition-colors flex items-center gap-2" href="repairs.html#battery">
+                    <span class="material-symbols-outlined text-[16px]">battery_charging_full</span>
+                    Battery Replacement
+                </a>
+                <a class="text-text-muted text-sm hover:text-primary transition-colors flex items-center gap-2" href="repairs.html#water">
+                    <span class="material-symbols-outlined text-[16px]">water_drop</span>
+                    Water Damage
+                </a>
+                <a class="text-text-muted text-sm hover:text-primary transition-colors flex items-center gap-2" href="trade-in.html">
+                    <span class="material-symbols-outlined text-[16px]">swap_horiz</span>
+                    Trade In
+                </a>
+                <a class="text-text-muted text-sm hover:text-primary transition-colors flex items-center gap-2" href="repairs.html#diagnostics">
+                    <span class="material-symbols-outlined text-[16px]">medical_services</span>
+                    Diagnostics
+                </a>
             </div>
+            
+            <!-- Support Column -->
             <div class="flex flex-col gap-4">
                 <h4 class="text-white font-bold text-sm uppercase tracking-wider">Support</h4>
-                <a class="text-text-muted text-sm hover:text-primary transition-colors" href="#">Contact Us</a>
-                <a class="text-text-muted text-sm hover:text-primary transition-colors" href="#">Warranty Info</a>
-                <a class="text-text-muted text-sm hover:text-primary transition-colors" href="#">Shipping & Returns</a>
-                <a class="text-text-muted text-sm hover:text-primary transition-colors" href="#">FAQs</a>
+                <a class="text-text-muted text-sm hover:text-primary transition-colors flex items-center gap-2" href="contact.html">
+                    <span class="material-symbols-outlined text-[16px]">contact_support</span>
+                    Contact Us
+                </a>
+                <a class="text-text-muted text-sm hover:text-primary transition-colors flex items-center gap-2" href="warranty.html">
+                    <span class="material-symbols-outlined text-[16px]">verified_user</span>
+                    Warranty Info
+                </a>
+                <a class="text-text-muted text-sm hover:text-primary transition-colors flex items-center gap-2" href="shipping.html">
+                    <span class="material-symbols-outlined text-[16px]">local_shipping</span>
+                    Shipping & Returns
+                </a>
+                <a class="text-text-muted text-sm hover:text-primary transition-colors flex items-center gap-2" href="faq.html">
+                    <span class="material-symbols-outlined text-[16px]">help</span>
+                    FAQs
+                </a>
+                <a class="text-text-muted text-sm hover:text-primary transition-colors flex items-center gap-2" href="blog.html">
+                    <span class="material-symbols-outlined text-[16px]">article</span>
+                    Blog & Guides
+                </a>
             </div>
+            
+            <!-- Contact Column -->
             <div class="flex flex-col gap-4">
-                <h4 class="text-white font-bold text-sm uppercase tracking-wider">About EO</h4>
-                <p class="text-text-muted text-sm leading-relaxed">
-                    We are a specialized Apple service provider dedicated to bringing you the best certified pre-owned devices and top-tier repair services.
-                </p>
+                <h4 class="text-white font-bold text-sm uppercase tracking-wider">Contact</h4>
+                <div class="space-y-3">
+                    <div class="flex items-start gap-2">
+                        <span class="material-symbols-outlined text-primary text-[16px] mt-0.5">location_on</span>
+                        <p class="text-text-muted text-sm">123 Tech Avenue<br>Silicon Valley, CA 94000</p>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary text-[16px]">call</span>
+                        <a href="tel:+15551234567" class="text-text-muted text-sm hover:text-primary">+1 (555) 123-4567</a>
+                    </div>
+                    <div class="flex items-center gap-2">
+                        <span class="material-symbols-outlined text-primary text-[16px]">mail</span>
+                        <a href="mailto:support@eostore.com" class="text-text-muted text-sm hover:text-primary">support@eostore.com</a>
+                    </div>
+                </div>
+                
+                <!-- App Download Badges -->
+                <div class="pt-4">
+                    <p class="text-white text-sm font-medium mb-2">Download Our App</p>
+                    <div class="flex gap-2">
+                        <a href="#" class="flex-1 p-2 rounded-lg bg-black/20 border border-white/10 hover:bg-black/30 transition-colors flex items-center justify-center">
+                            <i class="fab fa-apple mr-2"></i>
+                            <div class="text-left">
+                                <p class="text-xs text-text-muted">Download on the</p>
+                                <p class="text-white text-sm font-bold">App Store</p>
+                            </div>
+                        </a>
+                        <a href="#" class="flex-1 p-2 rounded-lg bg-black/20 border border-white/10 hover:bg-black/30 transition-colors flex items-center justify-center">
+                            <i class="fab fa-google-play mr-2 text-sm"></i>
+                            <div class="text-left">
+                                <p class="text-xs text-text-muted">Get it on</p>
+                                <p class="text-white text-sm font-bold">Google Play</p>
+                            </div>
+                        </a>
+                    </div>
+                </div>
             </div>
         </div>
+        
+        <!-- Bottom Footer -->
         <div class="border-t border-white/10 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-            <p class="text-text-muted text-xs">© 2024 EO Store. All rights reserved.</p>
-            <div class="flex gap-6">
-                <a class="text-text-muted text-xs hover:text-white transition-colors" href="#">Privacy Policy</a>
-                <a class="text-text-muted text-xs hover:text-white transition-colors" href="#">Terms of Service</a>
+            <div class="flex flex-col md:flex-row items-center gap-4">
+                <p class="text-text-muted text-xs">© 2024 EO Store. All rights reserved.</p>
+                <div class="flex gap-6">
+                    <a class="text-text-muted text-xs hover:text-white transition-colors" href="privacy.html">Privacy Policy</a>
+                    <a class="text-text-muted text-xs hover:text-white transition-colors" href="terms.html">Terms of Service</a>
+                    <a class="text-text-muted text-xs hover:text-white transition-colors" href="cookies.html">Cookie Policy</a>
+                    <a class="text-text-muted text-xs hover:text-white transition-colors" href="sitemap.html">Sitemap</a>
+                </div>
+            </div>
+            <div class="flex items-center gap-4">
+                <div class="flex items-center gap-2 text-text-muted text-xs">
+                    <span class="material-symbols-outlined text-[14px]">payments</span>
+                    <span>Secure Payment</span>
+                </div>
+                <div class="flex items-center gap-2 text-text-muted text-xs">
+                    <span class="material-symbols-outlined text-[14px]">security</span>
+                    <span>SSL Encrypted</span>
+                </div>
+                <div class="flex items-center gap-2 text-text-muted text-xs">
+                    <img src="https://img.icons8.com/color/48/000000/apple.png" class="w-4 h-4" alt="Apple">
+                    <span>Apple Authorized</span>
+                </div>
             </div>
         </div>
     </div>
 </footer>
+
+<!-- Back to Top Button -->
+<button onclick="window.scrollTo({top: 0, behavior: 'smooth'})" 
+        class="fixed bottom-8 right-8 size-12 rounded-full glass-panel border border-white/10 text-white flex items-center justify-center hover:scale-110 transition-transform z-40"
+        id="back-to-top">
+    <span class="material-symbols-outlined">arrow_upward</span>
+</button>
+
+<script>
+    // Show/hide back to top button
+    window.addEventListener('scroll', function() {
+        const backToTopBtn = document.getElementById('back-to-top');
+        if (window.scrollY > 500) {
+            backToTopBtn.classList.remove('hidden');
+        } else {
+            backToTopBtn.classList.add('hidden');
+        }
+    });
+    
+    // Initialize back to top button
+    document.getElementById('back-to-top').classList.add('hidden');
+    
+    // Add to cart functionality for featured products
+    document.querySelectorAll('button[class*="hover:bg-primary"]').forEach(button => {
+        if (button.innerHTML.includes('add')) {
+            button.addEventListener('click', function() {
+                const card = this.closest('.glass-panel');
+                const product = {
+                    id: card.querySelector('h3').textContent.toLowerCase().replace(/\s+/g, '-'),
+                    name: card.querySelector('h3').textContent,
+                    variant: card.querySelector('p.text-text-muted').textContent,
+                    price: parseFloat(card.querySelector('.text-xl').textContent.replace('$', '')),
+                    image: card.querySelector('img').src,
+                    quantity: 1
+                };
+                
+                let cart = JSON.parse(localStorage.getItem('cart')) || [];
+                const existingItem = cart.find(item => item.id === product.id);
+                
+                if (existingItem) {
+                    existingItem.quantity += 1;
+                } else {
+                    cart.push(product);
+                }
+                
+                localStorage.setItem('cart', JSON.stringify(cart));
+                updateCartCount();
+                showNotification(`${product.name} added to cart!`, 'success');
+            });
+        }
+    });
+</script>
 </body>
 </html>
